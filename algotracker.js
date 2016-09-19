@@ -13,7 +13,7 @@ function timeTracker(algo, arg){
   console.log(endTime - startTime); //this is in ms
   return result;
 }
-
+//
 console.log("bubbleSort:");
 console.log(timeTracker(bubbleSort, test.slice()));
 
