@@ -112,6 +112,8 @@ function quickSort(array){
 
 function draw(){
 
+  d3.select("div.sort-graph").html("");
+
   if(document.getElementById("axis-scale").value === "sqrt"){
     axisScale = "sqrt";
   } else {
@@ -208,11 +210,7 @@ function draw(){
      .attr("class", "axis")
      .attr("transform", "translate(" + padding + ",0)")
      .call(yAxis);
-     // 
-    //  let graph = document.getElementsByClassName('sort-graph');
-    //  if(graph.childElementCount() > 1){
-    //    graph.removeChild(graph.firstChild);
-    //  }
+
 }
 
 runSort();
