@@ -163,7 +163,8 @@ function draw(){
      .attr("cy", function(d) {
        return yScale(d[1]);
      })
-     .attr("r", 5)
+     .attr("r", 6)
+     .attr("opacity", 0.75)
      .attr("fill", function(d) {
        if(d[2] === "bubbleSort"){
          return "red";
