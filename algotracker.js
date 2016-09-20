@@ -1,8 +1,26 @@
+var dataset = [];
 
-let test = [];
+let algos = [bubbleSort, mergeSort, quickSort];
 
-for(let i = 0; i < 40000; i++){
-  test[i] = Math.floor(Math.random() * 1000000);
+function runSort(){
+  dataset = [];
+  for(let i = 0; i < 5; i++){
+    let inputLength = document.getElementById(`sort-input-${i + 1}`).value;
+    console.log(inputLength);
+    let inputArray = createRandArray(inputLength);
+    for(let j = 0; j < algos.length; j++){
+      timeTracker(algos[j], inputArray.slice());
+    }
+  }
+  draw();
+}
+
+function createRandArray(n){
+  let array= [];
+  for(let i = 0; i < n; i++){
+    array[i] = Math.floor(Math.random() * 1000000);
+  }
+  return array;
 }
 
 
@@ -10,18 +28,12 @@ function timeTracker(algo, arg){
   let startTime = new Date();
   let result = algo(arg);
   let endTime = new Date();
-  console.log(endTime - startTime); //this is in ms
-  return result;
+  let timeElapsed = endTime - startTime;
+  console.log(algo);
+  console.log(timeElapsed); //this is in ms
+  dataset.push([arg.length, timeElapsed]);
+  console.log(result);
 }
-//
-console.log("bubbleSort:");
-console.log(timeTracker(bubbleSort, test.slice()));
-
-console.log("mergeSort:");
-console.log(timeTracker(mergeSort, test.slice()));
-//
-console.log("quickSort:");
-console.log(timeTracker(quickSort, test.slice()));
 
 
 // THE SORTING ALGORITHMS
@@ -88,3 +100,84 @@ function quickSort(array){
 
     return quickSort(left).concat([pivot]).concat(quickSort(right));
 }
+
+
+// drawing
+function draw(){
+
+var w = 500;
+var h = 300;
+var padding = 30;
+
+var svg = d3.select("div.sort-graph")
+            .append("svg")
+            .attr("width", w)
+            .attr("height", h);
+
+var xScale = d3.scale.linear()
+               .domain([0, d3.max(dataset, function(d) { return d[0]; })])
+               .range([padding, w - padding * 2]);
+
+var yScale = d3.scale.linear()
+                .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+                .range([h - padding, padding]);
+
+var rScale = d3.scale.linear()
+               .domain([0, d3.max(dataset, function(d) { return d[1]; })])
+               .range([2, 5]);
+
+
+
+svg.selectAll("circle")
+   .data(dataset)
+   .enter()
+   .append("circle")
+   .attr("cx", function(d) {
+     return xScale(d[0]);
+   })
+   .attr("cy", function(d) {
+     return yScale(d[1]);
+   })
+   .attr("r", function(d) {
+     return rScale(d[1]);
+   });
+
+
+svg.selectAll("text")
+   .data(dataset)
+   .enter()
+   .append("text")
+   .text(function(d) {
+      return d[0] + "," + d[1];
+    })
+    .attr("x", function(d) {
+     return xScale(d[0]);
+    })
+    .attr("y", function(d) {
+         return yScale(d[1]);
+    })
+    .attr("font-family", "sans-serif")
+    .attr("font-size", "11px")
+    .attr("fill", "red");
+
+
+svg.append("g")
+       .attr("class", "axis")
+       .attr("transform", "translate(0," + (h - padding) + ")")
+       .call(d3.svg.axis()
+                   .scale(xScale)
+                   .orient("bottom")
+                   .ticks(5));
+
+var yAxis = d3.svg.axis()
+                 .scale(yScale)
+                 .orient("left")
+                 .ticks(5);
+
+svg.append("g")
+   .attr("class", "axis")
+   .attr("transform", "translate(" + padding + ",0)")
+   .call(yAxis);
+}
+
+runSort();

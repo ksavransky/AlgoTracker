@@ -8,8 +8,51 @@
     </head>
     <body>
 
-    <script src="https://d3js.org/d3.v3.min.js"></script>
-    <script src="algotracker.js"></script>
-    <script src="draw.js"></script>
+      <div id="title"> AlgoTracker </div>
+
+      <div id="title-description" class="title-label">
+        Algorithm Speed Graphing Tool
+       </div>
+
+      <div id="sort-box">
+
+        <div id="sort-input-box">
+            Input (Randomized Unsorted Arrays)
+            <div class="sort-array-box">
+              <label class="sort-array-label">Array #1 Length:</label>
+              <input type="text" value=100 id="sort-input-1"> </input>
+            </div>
+            <div class="sort-array-box">
+              <label class="sort-array-label">Array #2 Length:</label>
+              <input type="text" value=2500 id="sort-input-2"> </input>
+            </div>
+            <div class="sort-array-box">
+              <label class="sort-array-label">Array #3 Length:</label>
+              <input type="text" value=5000 id="sort-input-3"> </input>
+            </div>
+            <div class="sort-array-box">
+              <label class="sort-array-label">Array #4 Length:</label>
+              <input type="text" value=10000 id="sort-input-4"> </input>
+            </div>
+            <div class="sort-array-box">
+              <label class="sort-array-label">Array #5 Length:</label>
+              <input type="text" value=15000 id="sort-input-5"> </input>
+            </div>
+            <div class="button" id="sort-button" onclick="runSort()"> Run Test </div>
+        </div>
+
+        <div id="sort-graph-box">
+          <div> Time Performance </div>
+          <div id="milliseconds-label"> Time in Milliseconds </div>
+          <div class="sort-graph"></div>
+          <div> Length of Array </div>
+        </div>
+      </div>
+
+
+      <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+      <script src="./d3/d3.min.js"></script>
+      <script src="algotracker.js"></script>
+      <!-- <script src="draw.js"></script> -->
     </body>
 </html>
