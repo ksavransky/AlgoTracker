@@ -1,23 +1,58 @@
 var axisScale = "linear";
 
-
-
 var dataset = [];
-
-let algos = [bubbleSort, mergeSort, quickSort];
+var algos = [];
+var algoColors = [];
 
 function runSort(){
   dataset = [];
+  algos = [];
+  algoColors = [];
+  setAlgos();
+  // setAlgoColors();
   for(let i = 0; i < 5; i++){
     let inputLength = document.getElementById(`sort-input-${i + 1}`).value;
     console.log(inputLength);
     let inputArray = createRandArray(inputLength);
     for(let j = 0; j < algos.length; j++){
-      timeTracker(algos[j], inputArray.slice());
+      let color = algoColors[j];
+      timeTracker(algos[j], inputArray.slice(), color);
     }
   }
   draw();
 }
+
+function setAlgos(){
+  let input = [document.getElementById(`sort-algo-one`).value,
+  document.getElementById(`sort-algo-two`).value,
+  document.getElementById(`sort-algo-three`).value];
+
+  let colors = [document.getElementById(`sort-algo-one-color`).value,
+  document.getElementById(`sort-algo-two-color`).value,
+  document.getElementById(`sort-algo-three-color`).value];
+
+  input.forEach((str ,idx) =>{
+    if(str === "bubbleSort"){
+      algos.push(bubbleSort);
+      algoColors.push(colors[idx]);
+    } else if(str === "mergeSort"){
+      algos.push(mergeSort);
+      algoColors.push(colors[idx]);
+    } else if(str === "quickSort"){
+      algos.push(quickSort);
+      algoColors.push(colors[idx]);
+    }
+  });
+}
+// function setAlgoColors(){
+//   let colors = [document.getElementById(`sort-algo-one-color`).value,
+//   document.getElementById(`sort-algo-two-color`).value,
+//   document.getElementById(`sort-algo-three-color`).value];
+//
+//   colors.forEach(str =>{
+//     algoColors.push(str);
+//   });
+// }
 
 function createRandArray(n){
   let array= [];
@@ -28,15 +63,17 @@ function createRandArray(n){
 }
 
 
-function timeTracker(algo, arg){
-  let startTime = new Date();
-  let result = algo(arg);
-  let endTime = new Date();
-  let timeElapsed = endTime - startTime;
-  console.log(algo);
-  console.log(timeElapsed); //this is in ms
-  dataset.push([arg.length, timeElapsed, algo.name]);
-  console.log(result);
+function timeTracker(algo, arg, color){
+  if(algo.name !== "none"){
+    let startTime = new Date();
+    let result = algo(arg);
+    let endTime = new Date();
+    let timeElapsed = endTime - startTime;
+    // console.log(algo);
+    // console.log(timeElapsed); //this is in ms
+    dataset.push([arg.length, timeElapsed, algo.name, color]);
+    // console.log(result);
+  }
 }
 
 
@@ -166,33 +203,8 @@ function draw(){
      .attr("r", 6)
      .attr("opacity", 0.75)
      .attr("fill", function(d) {
-       if(d[2] === "bubbleSort"){
-         return "red";
-       } else if(d[2] === "mergeSort"){
-         return "blue";
-       } else {
-         return "yellow";
-       }
+       return d[3];
      });
-
-
-  // svg.selectAll("text")
-  //    .data(dataset)
-  //    .enter()
-  //    .append("text")
-  //    .text(function(d) {
-  //       return d[0] + "," + d[1];
-  //     })
-  //     .attr("x", function(d) {
-  //      return xScale(d[0]);
-  //     })
-  //     .attr("y", function(d) {
-  //          return yScale(d[1]);
-  //     })
-  //     .attr("font-family", "sans-serif")
-  //     .attr("font-size", "11px")
-  //     .attr("fill", "red");
-
 
   svg.append("g")
          .attr("class", "axis")

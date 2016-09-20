@@ -11,12 +11,13 @@
       <div id="title"> AlgoTracker </div>
 
       <div id="title-description" class="title-label">
-        Algorithm Speed Graphing Tool
+        Algorithm Performance Graphing
        </div>
 
       <div id="sort-box">
 
         <div id="sort-input-box">
+            Sorting Algorithms <br>
             Input (Randomized Unsorted Arrays)
             <div class="sort-array-box">
               <label class="sort-array-label">Array #1 Length:</label>
@@ -37,6 +38,43 @@
             <div class="sort-array-box">
               <label class="sort-array-label">Array #5 Length:</label>
               <input type="text" value=15000 id="sort-input-5"> </input>
+            </div>
+            <div id="sort-algo-box">
+              Algorirthm 1:
+              <select id="sort-algo-one">
+                <option value="bubbleSort" selected>Bubble Sort</option>
+                <option value="mergeSort">Merge Sort</option>
+                <option value="quickSort">Quick Sort</option>
+              </select>
+              <select id="sort-algo-one-color">
+                <option value="red" selected>Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow">Yellow</option>
+              </select>
+              Algorithm 2:
+              <select id="sort-algo-two">
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="mergeSort" selected>Merge Sort</option>
+                <option value="quickSort">Quick Sort</option>
+                <option value="none">None</option>
+              </select>
+              <select id="sort-algo-two-color">
+                <option value="red">Red</option>
+                <option value="blue" selected>Blue</option>
+                <option value="yellow">Yellow</option>
+              </select>
+              Algorithm 3:
+              <select id="sort-algo-three">
+                <option value="bubbleSort">Bubble Sort</option>
+                <option value="mergeSort">Merge Sort</option>
+                <option value="quickSort" selected>Quick Sort</option>
+                <option value="none">None</option>
+              </select>
+              <select id="sort-algo-three-color">
+                <option value="red">Red</option>
+                <option value="blue">Blue</option>
+                <option value="yellow" selected>Yellow</option>
+              </select>
             </div>
             <div>Axis Scale:</div>
             <select id="axis-scale">
