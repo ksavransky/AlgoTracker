@@ -11,71 +11,135 @@
       <div id="title"> AlgoTracker </div>
 
       <div id="title-description" class="title-label">
-        Algorithm Performance Graphing
+        Algorithm Performance Grapher
        </div>
 
-      <div id="sort-box">
+      <div id="sort-container">
+        <div id="sort-label">Sorting Algorithms</div>
 
-        <div id="sort-input-box">
-            Sorting Algorithms <br>
-            Input (Randomized Unsorted Arrays)
-            <div class="sort-array-box">
-              <label class="sort-array-label">Array #1 Length:</label>
-              <input type="text" value=100 id="sort-input-1"> </input>
-            </div>
-            <div class="sort-array-box">
-              <label class="sort-array-label">Array #2 Length:</label>
-              <input type="text" value=2500 id="sort-input-2"> </input>
-            </div>
-            <div class="sort-array-box">
-              <label class="sort-array-label">Array #3 Length:</label>
-              <input type="text" value=5000 id="sort-input-3"> </input>
-            </div>
-            <div class="sort-array-box">
-              <label class="sort-array-label">Array #4 Length:</label>
-              <input type="text" value=10000 id="sort-input-4"> </input>
-            </div>
-            <div class="sort-array-box">
-              <label class="sort-array-label">Array #5 Length:</label>
-              <input type="text" value=15000 id="sort-input-5"> </input>
-            </div>
-            <div id="sort-algo-box">
+        <div id="sort-box">
+          <div id="sort-algo-box">
               Algorirthm 1:
-              <select id="sort-algo-one">
-                <option value="bubbleSort" selected>Bubble Sort</option>
-                <option value="mergeSort">Merge Sort</option>
-                <option value="quickSort">Quick Sort</option>
-              </select>
-              <select id="sort-algo-one-color">
-                <option value="red" selected>Red</option>
-                <option value="blue">Blue</option>
-                <option value="yellow">Yellow</option>
-              </select>
+              <div class="sort-algo-info">
+                <select id="sort-algo-one">
+                  <option value="bubbleSort" selected>Bubble Sort</option>
+                  <option value="mergeSort">Merge Sort</option>
+                  <option value="quickSort">Quick Sort</option>
+                  <option value="selectionSort">Selection Sort</option>
+                  <option value="insertionSort">Insertion Sort</option>
+                  <option value="heapSort">Heap Sort</option>
+                </select>
+                <select id="sort-algo-one-color">
+                  <option value="red" selected>Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="green">Green</option>
+                  <option value="purple">Purple</option>
+                </select>
+              </div>
               Algorithm 2:
-              <select id="sort-algo-two">
-                <option value="bubbleSort">Bubble Sort</option>
-                <option value="mergeSort" selected>Merge Sort</option>
-                <option value="quickSort">Quick Sort</option>
-                <option value="none">None</option>
-              </select>
-              <select id="sort-algo-two-color">
-                <option value="red">Red</option>
-                <option value="blue" selected>Blue</option>
-                <option value="yellow">Yellow</option>
-              </select>
+              <div class="sort-algo-info">
+                <select id="sort-algo-two">
+                  <option value="bubbleSort">Bubble Sort</option>
+                  <option value="mergeSort" selected>Merge Sort</option>
+                  <option value="quickSort">Quick Sort</option>
+                  <option value="selectionSort">Selection Sort</option>
+                  <option value="insertionSort">Insertion Sort</option>
+                  <option value="heapSort">Heap Sort</option>
+                  <option value="none">None</option>
+                </select>
+                <select id="sort-algo-two-color">
+                  <option value="red">Red</option>
+                  <option value="blue" selected>Blue</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="green">Green</option>
+                  <option value="purple">Purple</option>
+                </select>
+              </div>
               Algorithm 3:
-              <select id="sort-algo-three">
-                <option value="bubbleSort">Bubble Sort</option>
-                <option value="mergeSort">Merge Sort</option>
-                <option value="quickSort" selected>Quick Sort</option>
-                <option value="none">None</option>
-              </select>
-              <select id="sort-algo-three-color">
-                <option value="red">Red</option>
-                <option value="blue">Blue</option>
-                <option value="yellow" selected>Yellow</option>
-              </select>
+              <div class="sort-algo-info">
+                <select id="sort-algo-three">
+                  <option value="bubbleSort">Bubble Sort</option>
+                  <option value="mergeSort">Merge Sort</option>
+                  <option value="quickSort" selected>Quick Sort</option>
+                  <option value="selectionSort">Selection Sort</option>
+                  <option value="insertionSort">Insertion Sort</option>
+                  <option value="heapSort">Heap Sort</option>
+                  <option value="none">None</option>
+                </select>
+                <select id="sort-algo-three-color">
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="yellow" selected>Yellow</option>
+                  <option value="green">Green</option>
+                  <option value="purple">Purple</option>
+                </select>
+              </div>
+              Algorithm 4:
+              <div class="sort-algo-info">
+                <select id="sort-algo-four">
+                  <option value="bubbleSort">Bubble Sort</option>
+                  <option value="mergeSort">Merge Sort</option>
+                  <option value="quickSort" >Quick Sort</option>
+                  <option value="selectionSort"selected>Selection Sort</option>
+                  <option value="insertionSort">Insertion Sort</option>
+                  <option value="heapSort">Heap Sort</option>
+                  <option value="none">None</option>
+                </select>
+                <select id="sort-algo-four-color">
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="green" selected>Green</option>
+                  <option value="purple">Purple</option>
+                </select>
+              </div>
+              Algorithm 5:
+              <div class="sort-algo-info">
+                <select id="sort-algo-five">
+                  <option value="bubbleSort">Bubble Sort</option>
+                  <option value="mergeSort">Merge Sort</option>
+                  <option value="quickSort">Quick Sort</option>
+                  <option value="selectionSort">Selection Sort</option>
+                  <option value="insertionSort">Insertion Sort</option>
+                  <option value="heapSort" selected>Heap Sort</option>
+                  <option value="none">None</option>
+                </select>
+                <select id="sort-algo-five-color">
+                  <option value="red">Red</option>
+                  <option value="blue">Blue</option>
+                  <option value="yellow">Yellow</option>
+                  <option value="green">Green</option>
+                  <option value="purple" selected>Purple</option>
+                </select>
+              </div>
             </div>
+
+            <div id="sort-input-box">
+              Input (Randomized Unsorted Arrays)
+              <div class="sort-array-box">
+                <label class="sort-array-label">Array #1 Length:</label>
+                <input type="text" value=100 id="sort-input-1"> </input>
+              </div>
+              <div class="sort-array-box">
+                <label class="sort-array-label">Array #2 Length:</label>
+                <input type="text" value=2500 id="sort-input-2"> </input>
+              </div>
+              <div class="sort-array-box">
+                <label class="sort-array-label">Array #3 Length:</label>
+                <input type="text" value=5000 id="sort-input-3"> </input>
+              </div>
+              <div class="sort-array-box">
+                <label class="sort-array-label">Array #4 Length:</label>
+                <input type="text" value=10 id="sort-input-4"> </input>
+              </div>
+              <div class="sort-array-box">
+                <label class="sort-array-label">Array #5 Length:</label>
+                <input type="text" value=15 id="sort-input-5"> </input>
+              </div>
+            </div>
+          </div>
+
             <div>Axis Scale:</div>
             <select id="axis-scale">
               <option value="linear">Linear</option>

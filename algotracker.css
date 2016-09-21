@@ -1,3 +1,54 @@
+html, body, header, footer, h1, h2, h3, h4, h5{
+  display: flex;
+  margin: 0;
+  padding: 0;
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 16px;
+  color: #0000a7;
+}
+
+select, option, input{
+  font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
+  color: #0000a7;
+}
+
+body{
+  flex-direction: column;
+}
+
+#title{
+  margin: 15px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#title-description{
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+#sort-container{
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  margin-bottom: 5px;
+}
+
+#sort-label{
+  align-self: center;
+}
+
+#sort-box{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#sort-algo-box{
+  flex-direction: column;
+}
+
+
 .axis path,
 .axis line {
     fill: none;
