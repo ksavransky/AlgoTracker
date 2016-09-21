@@ -1,7 +1,7 @@
 // THE SORTING ALGORITHMS
 
 function bubbleSort(array){
-  let sorted = false;
+  var sorted = false;
 
   while(!sorted){
     sorted= true;

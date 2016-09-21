@@ -1,4 +1,4 @@
-var axisScale = "linear";
+var axisScale = "sqrt";
 
 var dataset = [];
 var algos = [];
@@ -9,7 +9,7 @@ function runSort(){
   algos = [];
   algoColors = [];
   setAlgos();
-  for(let i = 0; i < 5; i++){
+  for(var i = 0; i < 5; i++){
     let inputLength = document.getElementById(`sort-input-${i + 1}`).value;
     // console.log(inputLength);
     let inputArray = createRandArray(inputLength);

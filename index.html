@@ -132,11 +132,11 @@
               </div>
               <div class="sort-array-box">
                 <label class="sort-array-label">Array 4:</label>
-                <input type="text" value=10 id="sort-input-4"> </input>
+                <input type="text" value=7500 id="sort-input-4"> </input>
               </div>
               <div class="sort-array-box">
                 <label class="sort-array-label">Array 5:</label>
-                <input type="text" value=15 id="sort-input-5"> </input>
+                <input type="text" value=10000 id="sort-input-5"> </input>
               </div>
 
 
@@ -144,12 +144,12 @@
                 <div id="axis-scale-label">Graph Axes Scale:</div>
                 <select id="axis-scale">
                   <option value="linear">Linear</option>
-                  <option value="sqrt">Square Root</option>
+                  <option value="sqrt" selected>Square Root</option>
                 </select>
               </div>
 
 
-              <div class="button" id="sort-button" onclick="runSort()"> RUN TEST </div>
+              <div class="button" id="sort-button" onclick={runSort()}> RUN TEST </div>
             </div>
           </div>
         </div>
