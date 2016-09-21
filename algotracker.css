@@ -17,14 +17,16 @@ body{
 }
 
 #title{
-  margin: 15px;
-  font-size: 20px;
+  margin-left: 15px;
+  margin-top: 10px;
+  margin-bottom: 3px;
+  font-size: 22px;
   font-weight: bold;
 }
 
 #title-description{
   margin-left: 15px;
-  margin-bottom: 5px;
+  margin-bottom: 15px;
 }
 
 #sort-container{
@@ -35,17 +37,64 @@ body{
 }
 
 #sort-label{
-  align-self: center;
+  margin-left: 100px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 #sort-box{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 550px;
 }
 
 #sort-algo-box{
   flex-direction: column;
+}
+
+.sort-algo-info{
+  margin-bottom: 5px;
+}
+
+.algo-header-label{
+  margin-bottom: 5px;
+}
+
+#sort-input-label{
+  margin-bottom: 5px;
+}
+
+#sort-input-length-label{
+  margin-bottom: 3px;
+  margin-left: 70px;
+}
+
+.sort-array-box{
+  margin-bottom: 5px;
+}
+
+#axis-scale-box{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+#axis-scale-label{
+  margin-right: 3px;
+}
+
+#sort-button{
+  margin-top: 14px;
+  margin-left: 54px;
+  border: solid 2px #0000a7;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  background: #c7c7ff;
+  cursor: pointer;
 }
 
 

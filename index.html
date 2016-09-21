@@ -15,11 +15,11 @@
        </div>
 
       <div id="sort-container">
-        <div id="sort-label">Sorting Algorithms</div>
+        <div id="sort-label">Sorting Algorithm Performance Grapher</div>
 
         <div id="sort-box">
           <div id="sort-algo-box">
-              Algorirthm 1:
+              <div class="algo-header-label">Algorithm 1:</div>
               <div class="sort-algo-info">
                 <select id="sort-algo-one">
                   <option value="bubbleSort" selected>Bubble Sort</option>
@@ -37,7 +37,7 @@
                   <option value="purple">Purple</option>
                 </select>
               </div>
-              Algorithm 2:
+              <div class="algo-header-label">Algorithm 2:</div>
               <div class="sort-algo-info">
                 <select id="sort-algo-two">
                   <option value="bubbleSort">Bubble Sort</option>
@@ -56,7 +56,7 @@
                   <option value="purple">Purple</option>
                 </select>
               </div>
-              Algorithm 3:
+              <div class="algo-header-label">Algorithm 3:</div>
               <div class="sort-algo-info">
                 <select id="sort-algo-three">
                   <option value="bubbleSort">Bubble Sort</option>
@@ -75,7 +75,7 @@
                   <option value="purple">Purple</option>
                 </select>
               </div>
-              Algorithm 4:
+              <div class="algo-header-label">Algorithm 4:</div>
               <div class="sort-algo-info">
                 <select id="sort-algo-four">
                   <option value="bubbleSort">Bubble Sort</option>
@@ -94,7 +94,7 @@
                   <option value="purple">Purple</option>
                 </select>
               </div>
-              Algorithm 5:
+              <div class="algo-header-label">Algorithm 5:</div>
               <div class="sort-algo-info">
                 <select id="sort-algo-five">
                   <option value="bubbleSort">Bubble Sort</option>
@@ -116,36 +116,42 @@
             </div>
 
             <div id="sort-input-box">
-              Input (Randomized Unsorted Arrays)
+              <div id="sort-input-label"> Input (Randomized Unsorted Arrays) </div>
+              <div id="sort-input-length-label"> Array Length </div>
               <div class="sort-array-box">
-                <label class="sort-array-label">Array #1 Length:</label>
+                <label class="sort-array-label">Array 1:</label>
                 <input type="text" value=100 id="sort-input-1"> </input>
               </div>
               <div class="sort-array-box">
-                <label class="sort-array-label">Array #2 Length:</label>
+                <label class="sort-array-label">Array 2:</label>
                 <input type="text" value=2500 id="sort-input-2"> </input>
               </div>
               <div class="sort-array-box">
-                <label class="sort-array-label">Array #3 Length:</label>
+                <label class="sort-array-label">Array 3:</label>
                 <input type="text" value=5000 id="sort-input-3"> </input>
               </div>
               <div class="sort-array-box">
-                <label class="sort-array-label">Array #4 Length:</label>
+                <label class="sort-array-label">Array 4:</label>
                 <input type="text" value=10 id="sort-input-4"> </input>
               </div>
               <div class="sort-array-box">
-                <label class="sort-array-label">Array #5 Length:</label>
+                <label class="sort-array-label">Array 5:</label>
                 <input type="text" value=15 id="sort-input-5"> </input>
               </div>
+
+
+              <div id="axis-scale-box">
+                <div id="axis-scale-label">Graph Axes Scale:</div>
+                <select id="axis-scale">
+                  <option value="linear">Linear</option>
+                  <option value="sqrt">Square Root</option>
+                </select>
+              </div>
+
+
+              <div class="button" id="sort-button" onclick="runSort()"> RUN TEST </div>
             </div>
           </div>
-
-            <div>Axis Scale:</div>
-            <select id="axis-scale">
-              <option value="linear">Linear</option>
-              <option value="sqrt">Square Root</option>
-            </select>
-            <div class="button" id="sort-button" onclick="runSort()"> Run Test </div>
         </div>
 
         <div id="sort-graph-box">
