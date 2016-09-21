@@ -37,7 +37,7 @@ body{
 }
 
 #sort-label{
-  margin-left: 100px;
+  margin-left: 250px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -46,8 +46,8 @@ body{
 #sort-box{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 550px;
+  justify-content: space-around;
+  width: 750px;
 }
 
 #sort-algo-box{
