@@ -5,9 +5,9 @@ function bubbleSort(array){
 
   while(!sorted){
     sorted= true;
-    for(let i = 0; i < array.length - 1; i++){
+    for(var i = 0; i < array.length - 1; i++){
       if(array[i] > array[i + 1]){
-        let hld = array[i];
+        var hld = array[i];
         array[i] = array[i + 1];
         array[i + 1] = hld;
         sorted = false;
@@ -34,7 +34,7 @@ function merge(left, right) {
   const merged = [];
 
   while (left.length > 0 && right.length > 0) {
-    let nextItem = (left[0] < right[0]) ? left.shift() : right.shift();
+    var nextItem = (left[0] < right[0]) ? left.shift() : right.shift();
     merged.push(nextItem);
   }
 
@@ -51,7 +51,7 @@ function quickSort(array){
     const left = [];
     const right = [];
 
-    for(let i = 1; i < array.length; i++){
+    for(var i = 1; i < array.length; i++){
       if(array[i] <= pivot){
         left.push(array[i]);
       } else {

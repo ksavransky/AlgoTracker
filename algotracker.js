@@ -10,11 +10,11 @@ function runSort(){
   algoColors = [];
   setAlgos();
   for(var i = 0; i < 5; i++){
-    let inputLength = document.getElementById(`sort-input-${i + 1}`).value;
+    var inputLength = document.getElementById(`sort-input-${i + 1}`).value;
     // console.log(inputLength);
-    let inputArray = createRandArray(inputLength);
-    for(let j = 0; j < algos.length; j++){
-      let color = algoColors[j];
+    var inputArray = createRandArray(inputLength);
+    for(var j = 0; j < algos.length; j++){
+      var color = algoColors[j];
       timeTracker(algos[j], inputArray.slice(), color);
     }
   }
@@ -22,19 +22,19 @@ function runSort(){
 }
 
 function setAlgos(){
-  let input = [document.getElementById(`sort-algo-one`).value,
+  var input = [document.getElementById(`sort-algo-one`).value,
                 document.getElementById(`sort-algo-two`).value,
                 document.getElementById(`sort-algo-three`).value,
                 document.getElementById(`sort-algo-four`).value,
                 document.getElementById(`sort-algo-five`).value];
 
-  let colors = [document.getElementById(`sort-algo-one-color`).value,
+  var colors = [document.getElementById(`sort-algo-one-color`).value,
                 document.getElementById(`sort-algo-two-color`).value,
                 document.getElementById(`sort-algo-three-color`).value,
                 document.getElementById(`sort-algo-four-color`).value,
                 document.getElementById(`sort-algo-five-color`).value];
 
-  input.forEach((str ,idx) =>{
+  input.forEach(function(str ,idx) {
     if(str === "bubbleSort"){
       algos.push(bubbleSort);
       algoColors.push(colors[idx]);
@@ -59,8 +59,8 @@ function setAlgos(){
 
 
 function createRandArray(n){
-  let array= [];
-  for(let i = 0; i < n; i++){
+  var array= [];
+  for(var i = 0; i < n; i++){
     array[i] = Math.floor(Math.random() * 1000000);
   }
   return array;
@@ -69,10 +69,10 @@ function createRandArray(n){
 
 function timeTracker(algo, arg, color){
   if(algo.name !== "none"){
-    let startTime = new Date();
-    let result = algo(arg);
-    let endTime = new Date();
-    let timeElapsed = endTime - startTime;
+    var startTime = new Date();
+    var result = algo(arg);
+    var endTime = new Date();
+    var timeElapsed = endTime - startTime;
     // console.log(algo);
     // console.log(timeElapsed); //this is in ms
     dataset.push([arg.length, timeElapsed, algo.name, color]);
