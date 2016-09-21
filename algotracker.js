@@ -3,6 +3,7 @@ var axisScale = "sqrt";
 var dataset = [];
 var algos = [];
 var algoColors = [];
+var coords = [];
 
 function runSort(){
   dataset = [];
@@ -80,10 +81,22 @@ function timeTracker(algo, arg, color){
   }
 }
 
+
+function setCoords(){
+  var numInputArrays = dataset.length / algos.length;
+  dataset.forEach((circle, idx) =>{
+    if(dataset[idx + numInputArrays]){
+      if(dataset[idx][2] == dataset[idx + numInputArrays][2]){
+        coords.push([dataset[idx][0], dataset[idx][1],
+          dataset[idx + numInputArrays][0], dataset[idx + numInputArrays][1]]);
+      }
+    }
+  });
+}
 // drawing
 
 function draw(){
-
+  setCoords();
   d3.select("div.sort-graph").html("");
 
   if(document.getElementById("axis-scale").value === "sqrt"){
@@ -124,7 +137,6 @@ function draw(){
         .range([2, 5]);
 
 
-
   svg.selectAll("circle")
      .data(dataset)
      .enter()
@@ -140,6 +152,25 @@ function draw(){
      .attr("fill", function(d) {
        return d[3];
      });
+
+  svg.selectAll("line")
+     .data(coords)
+     .enter()
+     .append("line")
+     .attr("x1", function(d) {
+       return xScale(d[0]);
+     })
+     .attr("y1", function(d) {
+       return yScale(d[1]);
+     })
+     .attr("x2", function(d) {
+       return xScale(d[2]);
+     })
+     .attr("y2", function(d) {
+       return yScale(d[3]);
+     })
+     .attr("stroke-width", 1)
+     .attr("stroke", "black");
 
   svg.append("g")
          .attr("class", "axis")
