@@ -23,12 +23,16 @@ function runSort(){
 
 function setAlgos(){
   let input = [document.getElementById(`sort-algo-one`).value,
-  document.getElementById(`sort-algo-two`).value,
-  document.getElementById(`sort-algo-three`).value];
+                document.getElementById(`sort-algo-two`).value,
+                document.getElementById(`sort-algo-three`).value,
+                document.getElementById(`sort-algo-four`).value,
+                document.getElementById(`sort-algo-five`).value];
 
   let colors = [document.getElementById(`sort-algo-one-color`).value,
-  document.getElementById(`sort-algo-two-color`).value,
-  document.getElementById(`sort-algo-three-color`).value];
+                document.getElementById(`sort-algo-two-color`).value,
+                document.getElementById(`sort-algo-three-color`).value,
+                document.getElementById(`sort-algo-four-color`).value,
+                document.getElementById(`sort-algo-five-color`).value];
 
   input.forEach((str ,idx) =>{
     if(str === "bubbleSort"){
@@ -39,6 +43,15 @@ function setAlgos(){
       algoColors.push(colors[idx]);
     } else if(str === "quickSort"){
       algos.push(quickSort);
+      algoColors.push(colors[idx]);
+    } else if(str === "heapSort"){
+      algos.push(heapSort);
+      algoColors.push(colors[idx]);
+    } else if(str === "selectionSort"){
+      algos.push(selectionSort);
+      algoColors.push(colors[idx]);
+    } else if(str === "insertionSort"){
+      algos.push(insertionSort);
       algoColors.push(colors[idx]);
     }
   });
