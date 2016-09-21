@@ -4,12 +4,12 @@ html, body, header, footer, h1, h2, h3, h4, h5{
   padding: 0;
   font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
   font-size: 16px;
-  color: #0000a7;
+  color: black;
 }
 
 select, option, input{
   font-family: 'proxima-nova','Helvetica Neue',Arial,Helvetica,sans-serif;
-  color: #0000a7;
+  color: black;
 }
 
 body{
@@ -88,13 +88,24 @@ body{
 #sort-button{
   margin-top: 14px;
   margin-left: 54px;
-  border: solid 2px #0000a7;
+  border: solid 2px black;
   border-radius: 5px;
   width: 100px;
   height: 20px;
   text-align: center;
-  background: #c7c7ff;
+  background: #6cff72;
   cursor: pointer;
+}
+
+#time-perf-label{
+  margin-top: 20px;
+  margin-left: 308px;
+  font-weight: bold;
+}
+
+#sort-graph-inner{
+  display: flex;
+  flex-direction: row;
 }
 
 
@@ -110,12 +121,27 @@ body{
     font-size: 11px;
 }
 
+#sort-graph-box{
+  display: flex;
+  flex-direction: column;
+}
+
 .sort-graph{
-  margin-left: 50px;
+  margin-left: -170px;
 }
 
 #milliseconds-label{
+  display: flex;
   transform: rotate(270deg);
-	transform-origin: left top 0;
-  margin-top: 200px;
+  transform-origin: left top 0;
+  margin-top: 400px;
+  margin-left: 20px;
+  width: 190px;
+  color: black;
+}
+
+#length-of-array-label{
+  margin-left: 335px;
+  margin-top: -20px;
+  color: black;
 }
