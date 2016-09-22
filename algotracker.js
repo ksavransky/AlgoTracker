@@ -83,12 +83,12 @@ function timeTracker(algo, arg, color){
 
 
 function setCoords(){
-  var numInputArrays = dataset.length / algos.length;
+  coords = [];
   dataset.forEach((circle, idx) =>{
-    if(dataset[idx + numInputArrays]){
-      if(dataset[idx][2] == dataset[idx + numInputArrays][2]){
+    if(dataset[idx + algos.length]){
+      if(dataset[idx][2] == dataset[idx + algos.length][2]){
         coords.push([dataset[idx][0], dataset[idx][1],
-          dataset[idx + numInputArrays][0], dataset[idx + numInputArrays][1]]);
+          dataset[idx + algos.length][0], dataset[idx + algos.length][1], circle[3]]);
       }
     }
   });
@@ -170,7 +170,9 @@ function draw(){
        return yScale(d[3]);
      })
      .attr("stroke-width", 1)
-     .attr("stroke", "black");
+     .attr("stroke", function(d) {
+       return d[4];
+     });
 
   svg.append("g")
          .attr("class", "axis")
