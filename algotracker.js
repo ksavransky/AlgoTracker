@@ -84,7 +84,7 @@ function timeTracker(algo, arg, color){
 
 function setCoords(){
   coords = [];
-  dataset.forEach((circle, idx) =>{
+  dataset.forEach(function(circle, idx){
     if(dataset[idx + algos.length]){
       if(dataset[idx][2] == dataset[idx + algos.length][2]){
         coords.push([dataset[idx][0], dataset[idx][1],
