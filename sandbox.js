@@ -1,3 +1,4 @@
+
 var axisScale = "sqrt";
 
 var dataset = [];
@@ -195,6 +196,6 @@ function draw(){
 
 runSort();
 
-function changeToSandbox(){
-  window.location.href = "sandbox.html";
+function changeToSorting(){
+  window.location.href = "index.html";
 }

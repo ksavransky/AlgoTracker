@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>AlgoTracker</title>
+        <link rel="stylesheet" type="text/css" href="sandbox.css">
+
+    </head>
+    <body>
+
+      <div id="title"> AlgoTracker </div>
+
+      <div id="title-description" class="title-label">
+        Algorithm Performance Grapher
+       </div>
+
+      <div id="change-to-sorting" onclick={changeToSorting()}>
+          Go To Sorting Algorithms
+      </div>
+
+      <div id="sandbox-container">
+        <div id="sandbox-label">Custom Algorithm Performance Grapher</div>
+
+        <div id="sandbox-box">
+          <div id="sandbox-algo-box">
+              <div class="sandbox-algo-header-label">Algorithm 1:</div>
+              <div class="sandbox-algo-info">
+                <textarea rows="4" cols="50" id="sandbox-algo-one">
+
+                </textarea>
+                <select id="sandbox-algo-one-color">
+                  <option value="red" selected>Red</option>
+                  <option value="blue">Blue</option>
+                </select>
+              </div>
+              <div class="sandbox-algo-header-label">Algorithm 2:</div>
+              <div class="sandbox-algo-info">
+                <textarea rows="4" cols="50" id="sandbox-algo-two">
+
+                </textarea>
+                <select id="sandbox-algo-two-color">
+                  <option value="red">Red</option>
+                  <option value="blue" selected>Blue</option>
+                </select>
+              </div>
+
+
+
+            </div>
+
+            <div id="sandbox-input-box">
+
+
+              <div id="sandbox-axis-scale-box">
+                <div id="sandbox-axis-scale-label">Graph Axes Scale:</div>
+                <select id="sandbox-axis-scale">
+                  <option value="linear">Linear</option>
+                  <option value="sqrt" selected>Square Root</option>
+                </select>
+              </div>
+
+
+              <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="sort-graph-box">
+          <div id="time-perf-label"> Time Performance Graph </div>
+          <div id="sort-graph-inner">
+            <div id="milliseconds-label"> Time in Milliseconds </div>
+            <div class="sort-graph"></div>
+          </div>
+          <div id="length-of-array-label"> Length of Array </div>
+        </div>
+      </div>
+
+
+      <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
+
+      <script src="./d3/d3.min.js"></script>
+      <script src="algorithms.js" type="text/javascript"></script>
+      <script src="sandbox.js" type="text/javascript"></script>
+      <!-- <script src="draw.js"></script> -->
+    </body>
+</html>
