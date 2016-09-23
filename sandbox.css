@@ -55,12 +55,24 @@ body{
   flex-direction: column;
 }
 
+#sandbox-algo-one{
+   white-space: pre;
+}
+#sandbox-algo-two{
+   white-space: pre;
+}
+
 .sandbox-algo-info{
   margin-bottom: 5px;
 }
 
 .sandbox-algo-header-label{
   margin-bottom: 5px;
+}
+
+#sandbox-arg-types-box{
+  display: flex;
+  flex-direction: column;
 }
 
 

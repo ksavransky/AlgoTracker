@@ -25,7 +25,7 @@
           <div id="sandbox-algo-box">
               <div class="sandbox-algo-header-label">Algorithm 1:</div>
               <div class="sandbox-algo-info">
-                <textarea rows="4" cols="50" id="sandbox-algo-one">
+                <textarea rows="10" cols="50" id="sandbox-algo-one">
 
                 </textarea>
                 <select id="sandbox-algo-one-color">
@@ -35,7 +35,7 @@
               </div>
               <div class="sandbox-algo-header-label">Algorithm 2:</div>
               <div class="sandbox-algo-info">
-                <textarea rows="4" cols="50" id="sandbox-algo-two">
+                <textarea rows="10" cols="50" id="sandbox-algo-two">
 
                 </textarea>
                 <select id="sandbox-algo-two-color">
@@ -44,11 +44,34 @@
                 </select>
               </div>
 
-
-
             </div>
 
             <div id="sandbox-input-box">
+
+              <div id="sandbox-arg-types-box">
+                <label id="arg-type-master-label"> Argument Types </label>
+                <label class="arg-type-label"> Argument 1: </label>
+                <select id="sandbox-arg-type-one">
+                  <option value="none" selected>None</option>
+                  <option value="random">Randomized Array</option>
+                  <option value="sorted">Sorted Array</option>
+                  <option value="other">Integer/String</option>
+                </select>
+                <label class="arg-type-label"> Argument 2: </label>
+                <select id="sandbox-arg-type-two">
+                  <option value="none" selected>None</option>
+                  <option value="random">Randomized Array</option>
+                  <option value="sorted">Sorted Array</option>
+                  <option value="other">Integer/String</option>
+                </select>
+                <label class="arg-type-label"> Argument 3: </label>
+                <select id="sandbox-arg-type-three">
+                  <option value="none" selected>None</option>
+                  <option value="random">Randomized Array</option>
+                  <option value="sorted">Sorted Array</option>
+                  <option value="other">Integer/String</option>
+                </select>
+              </div>
 
 
               <div id="sandbox-axis-scale-box">
@@ -62,6 +85,81 @@
 
               <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
             </div>
+
+          <div id="sandbox-input-container">
+            <label class="sandbox-input-label">Input 1:</label>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <input type="text" value="" id="sandbox-input-arg-1-1"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <input type="text" value="" id="sandbox-input-arg-1-2"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <input type="text" value="" id="sandbox-input-arg-1-3"> </input>
+            </div>
+
+            <label class="sandbox-input-label">Input 2:</label>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <input type="text" value="" id="sandbox-input-arg-2-1"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <input type="text" value="" id="sandbox-input-arg-2-2"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <input type="text" value="" id="sandbox-input-arg-2-3"> </input>
+            </div>
+
+            <label class="sandbox-input-label">Input 3:</label>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <input type="text" value="" id="sandbox-input-arg-3-1"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <input type="text" value="" id="sandbox-input-arg-3-2"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <input type="text" value="" id="sandbox-input-arg-3-3"> </input>
+            </div>
+
+            <label class="sandbox-input-label">Input 4:</label>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <input type="text" value="" id="sandbox-input-arg-4-1"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <input type="text" value="" id="sandbox-input-arg-4-2"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <input type="text" value="" id="sandbox-input-arg-4-3"> </input>
+            </div>
+
+            <label class="sandbox-input-label">Input 5:</label>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <input type="text" value="" id="sandbox-input-arg-5-1"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <input type="text" value="" id="sandbox-input-arg-5-2"> </input>
+            </div>
+            <div class="sandbox-input-box">
+                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <input type="text" value="" id="sandbox-input-arg-5-3"> </input>
+            </div>
+
+
+          </div>
+
           </div>
         </div>
 

@@ -6,55 +6,78 @@ var algos = [];
 var algoColors = [];
 var coords = [];
 
-function runSort(){
+function runSandbox(){
   dataset = [];
   algos = [];
   algoColors = [];
   setAlgos();
   for(var i = 0; i < 5; i++){
-    var inputLength = document.getElementById(`sort-input-${i + 1}`).value;
-    var inputArray = createRandArray(inputLength);
+    // set the three arguments to pass in
+    var arg1;
+    var arg1Type = document.getElementById("sandbox-arg-type-one").value;
+    var arg2;
+    var arg2Type = document.getElementById("sandbox-arg-type-two").value;
+    var arg3;
+    var arg3Type = document.getElementById("sandbox-arg-type-three").value;
+    var inputLength;
+
+    if (arg1Type === "random"){
+      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+      arg1 = createRandArray(inputLength);
+    } else if (arg1Type === "sorted"){
+     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+      arg1 = createSortedArray(inputLength);
+    } else if (arg1Type === "other"){
+      arg1 = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+    }
+
+    if (arg2Type === "random"){
+      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+      arg2 = createRandArray(inputLength);
+    } else if (arg2Type === "sorted"){
+     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+      arg2 = createSortedArray(inputLength);
+    } else if (arg2Type === "other"){
+      arg2 = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+    }
+
+    if (arg3Type === "random"){
+      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+      arg3 = createRandArray(inputLength);
+    } else if (arg3Type === "sorted"){
+     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+      arg3 = createSortedArray(inputLength);
+    } else if (arg3Type === "other"){
+      arg3 = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+    }
+
     for(var j = 0; j < algos.length; j++){
       var color = algoColors[j];
-      timeTracker(algos[j], inputArray.slice(), color);
+      if(arg1 instanceof Array){
+        arg1 = arg1.slice();
+      }
+      if(arg2 instanceof Array){
+        arg2 = arg2.slice();
+      }
+      if(arg3 instanceof Array){
+        arg3 = arg3.slice();
+      }
+      timeTracker(algos[j], arg1, arg2, arg3, color);
     }
   }
   draw();
 }
 
 function setAlgos(){
-  var input = [document.getElementById(`sort-algo-one`).value,
-                document.getElementById(`sort-algo-two`).value,
-                document.getElementById(`sort-algo-three`).value,
-                document.getElementById(`sort-algo-four`).value,
-                document.getElementById(`sort-algo-five`).value];
+  var input = [document.getElementById(`sandbox-algo-one`).value,
+                document.getElementById(`sandbox-algo-two`).value];
 
-  var colors = [document.getElementById(`sort-algo-one-color`).value,
-                document.getElementById(`sort-algo-two-color`).value,
-                document.getElementById(`sort-algo-three-color`).value,
-                document.getElementById(`sort-algo-four-color`).value,
-                document.getElementById(`sort-algo-five-color`).value];
+  var colors = [document.getElementById(`sandbox-algo-one-color`).value,
+                document.getElementById(`sandbox-algo-two-color`).value];
 
-  input.forEach(function(str ,idx) {
-    if(str === "bubbleSort"){
-      algos.push(bubbleSort);
-      algoColors.push(colors[idx]);
-    } else if(str === "mergeSort"){
-      algos.push(mergeSort);
-      algoColors.push(colors[idx]);
-    } else if(str === "quickSort"){
-      algos.push(quickSort);
-      algoColors.push(colors[idx]);
-    } else if(str === "heapSort"){
-      algos.push(heapSort);
-      algoColors.push(colors[idx]);
-    } else if(str === "selectionSort"){
-      algos.push(selectionSort);
-      algoColors.push(colors[idx]);
-    } else if(str === "insertionSort"){
-      algos.push(insertionSort);
-      algoColors.push(colors[idx]);
-    }
+  input.forEach(function(algo ,idx) {
+    algos.push(algo);
+    algoColors.push(colors[idx]);
   });
 }
 
@@ -67,17 +90,57 @@ function createRandArray(n){
   return array;
 }
 
+function createSortedArray(n){
+  var array= [];
+  for(var i = 0; i < n; i++){
+    array[i] = n;
+  }
+  return array;
+}
 
-function timeTracker(algo, arg, color){
-  if(algo.name !== "none"){
+
+
+function timeTracker(algo, arg1, arg2, arg3, color){
+  if(algo !== ""){
     var startTime = new Date();
-    var result = algo(arg);
+    console.log(algo);
+    console.log(parseAlgo(algo));
+    algo = parseAlgo(algo);
+    var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
     // console.log(algo);
     // console.log(timeElapsed); //this is in ms
-    dataset.push([arg.length, timeElapsed, algo.name, color]);
+    dataset.push([1, timeElapsed, algo.name, color]);
     // console.log(result);
+  }
+}
+
+function parseAlgo(algo){
+  var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
+  var argsArray = args.split(", ");
+  console.log(argsArray);
+
+  var cnt = 0;
+  var lastSemi;
+  while (cnt < algo.length){
+    if(algo[cnt] === "}"){
+      lastSemi = cnt;
+    }
+    cnt += 1;
+  }
+
+  var body = algo.substring(algo.indexOf("{") + 1, lastSemi);
+  console.log(body);
+
+  if (argsArray[0] === ""){
+    return new Function(body);
+  } else if (argsArray.length === 1){
+    return new Function(argsArray[0], body);
+  } else if (argsArray.length === 2){
+    return new Function(argsArray[0], argsArray[1], body);
+  } else if (argsArray.length === 3){
+    return new Function(argsArray[0], argsArray[1], argsArray[2], body);
   }
 }
 
@@ -99,7 +162,7 @@ function draw(){
   setCoords();
   d3.select("div.sort-graph").html("");
 
-  if(document.getElementById("axis-scale").value === "sqrt"){
+  if(document.getElementById("sandbox-axis-scale").value === "sqrt"){
     axisScale = "sqrt";
   } else {
     axisScale = "linear";
@@ -193,8 +256,6 @@ function draw(){
      .call(yAxis);
 
 }
-
-runSort();
 
 function changeToSorting(){
   window.location.href = "index.html";
