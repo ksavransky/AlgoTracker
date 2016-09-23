@@ -99,19 +99,32 @@ function createSortedArray(n){
 }
 
 
+var inputArgCount;
+var functionArgCount;
 
 function timeTracker(algo, arg1, arg2, arg3, color){
-  if(algo !== ""){
+  if(algo.includes("function")){
     var startTime = new Date();
-    console.log(algo);
-    console.log(parseAlgo(algo));
+    // console.log(arg1);
+    // console.log(arg2);
+    // console.log(arg3);
+    inputArgCount = 0;
+    [arg1, arg2, arg3].forEach(function(arg){
+      if(typeof arg !== "undefined")
+      inputArgCount += 1;
+    });
+    // console.log("input argument count");
+    // console.log(inputArgCount);
     algo = parseAlgo(algo);
+    console.log(algo);
+
+
     var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
     // console.log(algo);
     // console.log(timeElapsed); //this is in ms
-    dataset.push([1, timeElapsed, algo.name, color]);
+    dataset.push([arg1.length, timeElapsed, algo.name, color]);
     // console.log(result);
   }
 }
@@ -119,7 +132,19 @@ function timeTracker(algo, arg1, arg2, arg3, color){
 function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
-  console.log(argsArray);
+  functionArgCount = argsArray.length;
+  if (argsArray[0] == ""){
+    functionArgCount = 0;
+  }
+
+  if(functionArgCount !== inputArgCount){
+    console.log(`Error: your function takes ${functionArgCount} arguments
+      but you have inputed ${inputArgCount} arguments.`);
+  }
+  // console.log(argsArray);
+  // console.log("functionArgCount:");
+  // console.log(functionArgCount);
+  // console.log(argsArray);
 
   var cnt = 0;
   var lastSemi;
@@ -131,7 +156,7 @@ function parseAlgo(algo){
   }
 
   var body = algo.substring(algo.indexOf("{") + 1, lastSemi);
-  console.log(body);
+  // console.log(body);
 
   if (argsArray[0] === ""){
     return new Function(body);
