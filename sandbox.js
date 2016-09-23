@@ -1,4 +1,3 @@
-
 var axisScale = "sqrt";
 
 var dataset = [];
@@ -31,8 +30,9 @@ function runSandbox(){
           if (!(inputLength > 0)){missingInput = true;}
           argsArray.push(createSortedArray(inputLength));
         } else if (argsTypeArray[m] === "other"){
-          argsArray.push(document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value);
-          if (arg1 == ""){missingInput = true;}
+          var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value
+          argsArray.push(arg);
+          if (arg == ""){missingInput = true;}
         }
       }
 
