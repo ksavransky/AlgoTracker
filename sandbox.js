@@ -96,7 +96,7 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     // console.log(inputArgCount);
     algo = parseAlgo(algo);
     // console.log(algo);
-
+    //
     console.log("algorithm:");
     console.log(algo);
     console.log("arg1:");
@@ -143,20 +143,17 @@ function parseAlgo(algo){
   // console.log(argsArray);
 
   var cnt = 0;
-  var lastSemi;
+  var lastBracket;
   while (cnt < algo.length){
     if(algo[cnt] === "}"){
-      lastSemi = cnt;
+      lastBracket = cnt;
     }
     cnt += 1;
   }
 
-  var body = algo.substring(algo.indexOf("{") + 1, lastSemi);
+  var body = algo.substring(algo.indexOf("{") + 1, lastBracket);
   var exp = new RegExp(functionName, 'gi');
-  // console.log(exp);
   body = body.replace(exp, 'arguments.callee');
-  // console.log(body);
-
 
   if (argsArray[0] === ""){
     return new Function(body);
@@ -172,14 +169,23 @@ function parseAlgo(algo){
 
 function setCoords(){
   coords = [];
+  var emptyAlgos = 0;
+  algos.forEach(function(algo, idx){
+    if(algo === ""){
+      emptyAlgos += 1;
+    }
+  });
+
+  var actualAlgosLength = algos.length - emptyAlgos;
   dataset.forEach(function(circle, idx){
-    if(dataset[idx + algos.length]){
-      if(dataset[idx][2] == dataset[idx + algos.length][2]){
+    if(dataset[idx + actualAlgosLength]){
+      if(dataset[idx][2] == dataset[idx + actualAlgosLength][2]){
         coords.push([dataset[idx][0], dataset[idx][1],
-          dataset[idx + algos.length][0], dataset[idx + algos.length][1], circle[3]]);
+          dataset[idx + actualAlgosLength][0], dataset[idx + actualAlgosLength][1], circle[3]]);
       }
     }
   });
+
 }
 // drawing
 
