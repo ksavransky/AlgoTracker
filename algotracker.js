@@ -10,14 +10,33 @@ function runSort(){
   algos = [];
   algoColors = [];
   setAlgos();
+  var inputArrays = [];
+
   for(var i = 0; i < 5; i++){
     var inputLength = document.getElementById(`sort-input-${i + 1}`).value;
-    var inputArray = createRandArray(inputLength);
+    inputArrays.push(createRandArray(inputLength));
+  }
+
+  inputArrays.sort(function(a,b){
+    return b.length - a.length;
+  });
+
+  inputArrays.forEach(function(inputArray){
     for(var j = 0; j < algos.length; j++){
       var color = algoColors[j];
       timeTracker(algos[j], inputArray.slice(), color);
     }
-  }
+  });
+
+
+  // for(var i = 0; i < 5; i++){
+  //   var inputLength = document.getElementById(`sort-input-${i + 1}`).value;
+  //   var inputArray = createRandArray(inputLength);
+  //   for(var j = 0; j < algos.length; j++){
+  //     var color = algoColors[j];
+  //     timeTracker(algos[j], inputArray.slice(), color);
+  //   }
+  // }
   draw();
 }
 

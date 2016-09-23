@@ -36,51 +36,6 @@ function runSandbox(){
         }
       }
 
-    // var arg1;
-    // var arg1Type = document.getElementById("sandbox-arg-type-one").value;
-    // var arg2;
-    // var arg2Type = document.getElementById("sandbox-arg-type-two").value;
-    // var arg3;
-    // var arg3Type = document.getElementById("sandbox-arg-type-three").value;
-    // var inputLength;
-    //
-    // var missingInput = false;
-    //
-    // if (arg1Type === "random"){
-    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-    //   if (!(inputLength > 0)){missingInput = true;}
-    //   arg1 = createRandArray(inputLength);
-    // } else if (arg1Type === "sorted"){
-    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-    //   if (!(inputLength > 0)){missingInput = true;}
-    //   arg1 = createSortedArray(inputLength);
-    // } else if (arg1Type === "other"){
-    //   arg1 = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-    //   if (arg1 == ""){missingInput = true;}
-    // }
-    //
-    // if (arg2Type === "random"){
-    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-    //   arg2 = createRandArray(inputLength);
-    // } else if (arg2Type === "sorted"){
-    //  inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-    //   arg2 = createSortedArray(inputLength);
-    // } else if (arg2Type === "other"){
-    //   arg2 = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-    // }
-    //
-    // if (arg3Type === "random"){
-    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-    //   arg3 = createRandArray(inputLength);
-    // } else if (arg3Type === "sorted"){
-    //  inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-    //   arg3 = createSortedArray(inputLength);
-    // } else if (arg3Type === "other"){
-    //   arg3 = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-    // }
-
-    // only call algos if
-
     if (!missingInput){
       for(var j = 0; j < algos.length; j++){
         var color = algoColors[j];
@@ -211,6 +166,7 @@ function parseAlgo(algo){
 
 function setCoords(){
   coords = [];
+  // console.log(dataset);
   dataset.forEach(function(circle, idx){
     if(dataset[idx + algos.length]){
       if(dataset[idx][2] == dataset[idx + algos.length][2]){
@@ -219,6 +175,7 @@ function setCoords(){
       }
     }
   });
+  console.log(coords);
 }
 // drawing
 
