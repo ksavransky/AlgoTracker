@@ -126,6 +126,8 @@ function timeTracker(algo, arg1, arg2, arg3, color){
 function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
+  var functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
+  console.log(functionName);
   functionArgCount = argsArray.length;
   if (argsArray[0] == ""){
     functionArgCount = 0;
@@ -150,7 +152,11 @@ function parseAlgo(algo){
   }
 
   var body = algo.substring(algo.indexOf("{") + 1, lastSemi);
+  var exp = new RegExp(functionName, 'gi');
+  // console.log(exp);
+  body = body.replace(exp, 'arguments.callee');
   // console.log(body);
+
 
   if (argsArray[0] === ""){
     return new Function(body);
@@ -166,7 +172,6 @@ function parseAlgo(algo){
 
 function setCoords(){
   coords = [];
-  // console.log(dataset);
   dataset.forEach(function(circle, idx){
     if(dataset[idx + algos.length]){
       if(dataset[idx][2] == dataset[idx + algos.length][2]){
@@ -175,7 +180,6 @@ function setCoords(){
       }
     }
   });
-  console.log(coords);
 }
 // drawing
 

@@ -149,3 +149,69 @@ function heapSort(input) {
     }
     return input;
 }
+
+
+// MORE Algos
+
+
+function binarySearch(numbers, target) {
+  if (numbers.length === 0) {
+    return -1;
+  }
+
+  const probeIdx = Math.floor(numbers.length / 2);
+  const probe = numbers[probeIdx];
+  if (target === probe) {
+    return probeIdx;
+  } else if (target < probe) {
+    const left = numbers.slice(0, probeIdx);
+    return binarySearch(left, target);
+  } else {
+    const right = numbers.slice(probeIdx + 1);
+    const subproblem = binarySearch(right, target);
+
+    return subproblem === -1 ? -1 : subproblem + (probeIdx + 1);
+  }
+}
+
+function fibonacciRecursive(n) {
+  if (n === 0) {
+    return [];
+  } else if (n === 1) {
+    return [0];
+  } else if (n === 2) {
+    return [0, 1];
+  } else {
+    let fibs = fibonacciRecursive(n - 1);
+    fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+
+    return fibs;
+  }
+}
+
+function fibonacciIterative(n) {
+  if (n === 0) {
+    return [];
+  } else if (n === 1) {
+    return [0];
+  } else if (n === 2) {
+    return [0, 1];
+  }
+
+  let fibs = [0, 1];
+  while (fibs.length < n) {
+    fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1]);
+  }
+
+  return fibs;
+}
+
+function subsets(array) {
+  if (array.length === 0) {
+    return [[]];
+  }
+
+  const lastElement = array.slice(-1)[0];
+  const subs = subsets(array.slice(0, array.length - 1));
+  return subs.concat(subs.map(sb => sb.concat([lastElement])));
+}

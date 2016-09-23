@@ -28,15 +28,6 @@ function runSort(){
     }
   });
 
-
-  // for(var i = 0; i < 5; i++){
-  //   var inputLength = document.getElementById(`sort-input-${i + 1}`).value;
-  //   var inputArray = createRandArray(inputLength);
-  //   for(var j = 0; j < algos.length; j++){
-  //     var color = algoColors[j];
-  //     timeTracker(algos[j], inputArray.slice(), color);
-  //   }
-  // }
   draw();
 }
 
