@@ -72,7 +72,7 @@ function createRandArray(n){
 function createSortedArray(n){
   var array= [];
   for(var i = 0; i < n; i++){
-    array[i] = n;
+    array[i] = i + 1;
   }
   return array;
 }
@@ -127,7 +127,7 @@ function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
   var functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
-  console.log(functionName);
+  // console.log(functionName);
   functionArgCount = argsArray.length;
   if (argsArray[0] == ""){
     functionArgCount = 0;
