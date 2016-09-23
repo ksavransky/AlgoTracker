@@ -12,58 +12,82 @@ function runSandbox(){
   algoColors = [];
   setAlgos();
   for(var i = 0; i < 5; i++){
-    // set the three arguments to pass in
-    var arg1;
-    var arg1Type = document.getElementById("sandbox-arg-type-one").value;
-    var arg2;
-    var arg2Type = document.getElementById("sandbox-arg-type-two").value;
-    var arg3;
-    var arg3Type = document.getElementById("sandbox-arg-type-three").value;
+
+    var argsArray = [];
+    var argsTypeArray =[document.getElementById("sandbox-arg-type-one").value,
+                        document.getElementById("sandbox-arg-type-two").value,
+                        document.getElementById("sandbox-arg-type-three").value
+                        ];
     var inputLength;
+    var missingInput = false;
 
-    if (arg1Type === "random"){
-      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-      arg1 = createRandArray(inputLength);
-    } else if (arg1Type === "sorted"){
-     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-      arg1 = createSortedArray(inputLength);
-    } else if (arg1Type === "other"){
-      arg1 = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
-    }
-
-    if (arg2Type === "random"){
-      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-      arg2 = createRandArray(inputLength);
-    } else if (arg2Type === "sorted"){
-     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-      arg2 = createSortedArray(inputLength);
-    } else if (arg2Type === "other"){
-      arg2 = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
-    }
-
-    if (arg3Type === "random"){
-      inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-      arg3 = createRandArray(inputLength);
-    } else if (arg3Type === "sorted"){
-     inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-      arg3 = createSortedArray(inputLength);
-    } else if (arg3Type === "other"){
-      arg3 = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
-    }
-
-    for(var j = 0; j < algos.length; j++){
-      var color = algoColors[j];
-      if(arg1 instanceof Array){
-        arg1 = arg1.slice();
+    for(var m = 0; m < 3; m++){
+        if (argsTypeArray[m] === "random"){
+          inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
+          if (!(inputLength > 0)){missingInput = true;}
+          argsArray.push(createRandArray(inputLength));
+        } else if (argsTypeArray[m]  === "sorted"){
+          inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
+          if (!(inputLength > 0)){missingInput = true;}
+          argsArray.push(createSortedArray(inputLength));
+        } else if (argsTypeArray[m] === "other"){
+          argsArray.push(document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value);
+          if (arg1 == ""){missingInput = true;}
+        }
       }
-      if(arg2 instanceof Array){
-        arg2 = arg2.slice();
+
+    // var arg1;
+    // var arg1Type = document.getElementById("sandbox-arg-type-one").value;
+    // var arg2;
+    // var arg2Type = document.getElementById("sandbox-arg-type-two").value;
+    // var arg3;
+    // var arg3Type = document.getElementById("sandbox-arg-type-three").value;
+    // var inputLength;
+    //
+    // var missingInput = false;
+    //
+    // if (arg1Type === "random"){
+    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+    //   if (!(inputLength > 0)){missingInput = true;}
+    //   arg1 = createRandArray(inputLength);
+    // } else if (arg1Type === "sorted"){
+    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+    //   if (!(inputLength > 0)){missingInput = true;}
+    //   arg1 = createSortedArray(inputLength);
+    // } else if (arg1Type === "other"){
+    //   arg1 = document.getElementById(`sandbox-input-arg-${i + 1}-1`).value;
+    //   if (arg1 == ""){missingInput = true;}
+    // }
+    //
+    // if (arg2Type === "random"){
+    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+    //   arg2 = createRandArray(inputLength);
+    // } else if (arg2Type === "sorted"){
+    //  inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+    //   arg2 = createSortedArray(inputLength);
+    // } else if (arg2Type === "other"){
+    //   arg2 = document.getElementById(`sandbox-input-arg-${i + 1}-2`).value;
+    // }
+    //
+    // if (arg3Type === "random"){
+    //   inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+    //   arg3 = createRandArray(inputLength);
+    // } else if (arg3Type === "sorted"){
+    //  inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+    //   arg3 = createSortedArray(inputLength);
+    // } else if (arg3Type === "other"){
+    //   arg3 = document.getElementById(`sandbox-input-arg-${i + 1}-3`).value;
+    // }
+
+    // only call algos if
+
+    if (!missingInput){
+      for(var j = 0; j < algos.length; j++){
+        var color = algoColors[j];
+        timeTracker(algos[j], argsArray[0], argsArray[1], argsArray[2], color);
       }
-      if(arg3 instanceof Array){
-        arg3 = arg3.slice();
-      }
-      timeTracker(algos[j], arg1, arg2, arg3, color);
     }
+
   }
   draw();
 }
@@ -116,16 +140,31 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     // console.log("input argument count");
     // console.log(inputArgCount);
     algo = parseAlgo(algo);
-    console.log(algo);
+    // console.log(algo);
 
+    console.log("algorithm:");
+    console.log(algo);
+    console.log("arg1:");
+    console.log(arg1);
+
+    if(arg1 instanceof Array){
+      arg1 = arg1.slice();
+    }
+    if(arg2 instanceof Array){
+      arg2 = arg2.slice();
+    }
+    if(arg3 instanceof Array){
+      arg3 = arg3.slice();
+    }
 
     var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
-    // console.log(algo);
-    // console.log(timeElapsed); //this is in ms
+    console.log("time elapsed");
+    console.log(timeElapsed); //this is in ms
     dataset.push([arg1.length, timeElapsed, algo.name, color]);
-    // console.log(result);
+    console.log("result");
+    console.log(result);
   }
 }
 

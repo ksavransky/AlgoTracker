@@ -26,7 +26,22 @@
               <div class="sandbox-algo-header-label">Algorithm 1:</div>
               <div class="sandbox-algo-info">
                 <textarea rows="10" cols="50" id="sandbox-algo-one">
+function bubbleSort(array){
+var sorted = false;
 
+while(!sorted){
+  sorted= true;
+  for(var i = 0; i < array.length - 1; i++){
+    if(array[i] > array[i + 1]){
+      var hld = array[i];
+      array[i] = array[i + 1];
+      array[i + 1] = hld;
+      sorted = false;
+    }
+  }
+}
+return array;
+}
                 </textarea>
                 <select id="sandbox-algo-one-color">
                   <option value="red" selected>Red</option>
@@ -36,7 +51,25 @@
               <div class="sandbox-algo-header-label">Algorithm 2:</div>
               <div class="sandbox-algo-info">
                 <textarea rows="10" cols="50" id="sandbox-algo-two">
+function quickSort(array){
+if (array.length < 2) {
+  return array;
+}
 
+  const pivot = array[0];
+  const left = [];
+  const right = [];
+
+  for(var i = 1; i < array.length; i++){
+    if(array[i] <= pivot){
+      left.push(array[i]);
+    } else {
+      right.push(array[i]);
+    }
+  }
+
+  return quickSort(left).concat([pivot]).concat(quickSort(right));
+}
                 </textarea>
                 <select id="sandbox-algo-two-color">
                   <option value="red">Red</option>
@@ -52,8 +85,8 @@
                 <label id="arg-type-master-label"> Argument Types </label>
                 <label class="arg-type-label"> Argument 1: </label>
                 <select id="sandbox-arg-type-one">
-                  <option value="none" selected>None</option>
-                  <option value="random">Randomized Array</option>
+                  <option value="none">None</option>
+                  <option value="random" selected>Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
                   <option value="other">Integer/String</option>
                 </select>
@@ -90,7 +123,7 @@
             <label class="sandbox-input-label">Input 1:</label>
             <div class="sandbox-input-box">
                 <label class="sandbox-input-arg-label">Argument 1:</label>
-                <input type="text" value="" id="sandbox-input-arg-1-1"> </input>
+                <input type="text" value="1000" id="sandbox-input-arg-1-1"> </input>
             </div>
             <div class="sandbox-input-box">
                 <label class="sandbox-input-arg-label">Argument 2:</label>
@@ -104,7 +137,7 @@
             <label class="sandbox-input-label">Input 2:</label>
             <div class="sandbox-input-box">
                 <label class="sandbox-input-arg-label">Argument 1:</label>
-                <input type="text" value="" id="sandbox-input-arg-2-1"> </input>
+                <input type="text" value="10000" id="sandbox-input-arg-2-1"> </input>
             </div>
             <div class="sandbox-input-box">
                 <label class="sandbox-input-arg-label">Argument 2:</label>
