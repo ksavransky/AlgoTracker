@@ -118,12 +118,51 @@ function timeTracker(algo, arg1, arg2, arg3, color){
       arg3 = arg3.slice();
     }
 
+    var xAxisArg;
+    var xAxisArgNum = document.getElementById('sandbox-argument-axis-scale').value;
+
+    if (xAxisArgNum === "arg1"){
+      if (document.getElementById("sandbox-arg-type-one").value === "num"){
+        xAxisArg = arg1;
+        document.getElementById("length-of-array-label").innerHTML = "Integer Input Size";
+      } else if(document.getElementById("sandbox-arg-type-one").value === "str"){
+        xAxisArg = arg1.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of String";
+      } else {
+        xAxisArg = arg1.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of Array";
+      }
+    } else if (xAxisArgNum === "arg2") {
+      if (document.getElementById("sandbox-arg-type-two").value === "num"){
+        xAxisArg = arg2;
+        document.getElementById("length-of-array-label").innerHTML = "Integer Input Size";
+      } else if(document.getElementById("sandbox-arg-type-two").value === "str"){
+        xAxisArg = arg2.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of String";
+      } else {
+        xAxisArg = arg2.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of Array";
+      }
+    } else if (xAxisArgNum === "arg3") {
+      if (document.getElementById("sandbox-arg-type-three").value === "num"){
+        xAxisArg = arg3;
+        document.getElementById("length-of-array-label").innerHTML = "Integer Input Size";
+      } else if(document.getElementById("sandbox-arg-type-three").value === "str"){
+        xAxisArg = arg3.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of String";
+      } else {
+        xAxisArg = arg3.length;
+        document.getElementById("length-of-array-label").innerHTML = "Length of Array";
+      }
+    }
+
+
     var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
     console.log("time elapsed");
     console.log(timeElapsed); //this is in ms
-    dataset.push([arg1.length, timeElapsed, algo.name, color]);
+    dataset.push([xAxisArg, timeElapsed, algo.name, color]);
     console.log("result");
     console.log(result);
   }
