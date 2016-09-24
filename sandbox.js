@@ -345,13 +345,73 @@ function clearInputs(){
   document.getElementById("sandbox-arg-type-two").value = "none";
   document.getElementById("sandbox-arg-type-three").value = "none";
 
+  document.getElementById("sandbox-argument-axis-scale").value = "arg1";
+
   for(var i = 0; i < 5; i++){
     for(var m = 0; m < 3; m++){
        document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value = "";
     }
   }
+}
 
+function setArgType(argNum){
+  var selectedValue;
+  if (argNum === 1){
+    selectedValue = "one";
+  } else if(argNum === 2){
+    selectedValue = "two";
+  } else {
+    selectedValue = "three";
+  }
+  var selectedType = document.getElementById(`sandbox-arg-type-${selectedValue}`).value;
 
+  if (selectedType === "none"){
+    for(var i = 0; i < 5; i++){
+      for(var m = 0; m < 3; m++){
+         var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
+         textBox.value = "";
+         textBox.disabled = true;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
+         = `Arg ${argNum} (none):`;
+      }
+    }
+  } else if (selectedType === "num"){
+    for(var i = 0; i < 5; i++){
+      for(var m = 0; m < 3; m++){
+         var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
+         textBox.disabled = false;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
+         = `Arg ${argNum} (integer):`;
+      }
+    }
+  } else if (selectedType === "str"){
+    for(var i = 0; i < 5; i++){
+      for(var m = 0; m < 3; m++){
+         var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
+         textBox.disabled = false;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
+         = `Arg ${argNum} (string):`;
+      }
+    }
+  } else if (selectedType === "random"){
+    for(var i = 0; i < 5; i++){
+      for(var m = 0; m < 3; m++){
+         var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
+         textBox.disabled = false;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
+         = `Arg ${argNum} (random array) length:`;
+      }
+    }
+  } else if (selectedType === "sorted"){
+    for(var i = 0; i < 5; i++){
+      for(var m = 0; m < 3; m++){
+         var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
+         textBox.disabled = false;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
+         = `Arg ${argNum} (sorted array) length:`;
+      }
+    }
+  }
 
 }
 
@@ -487,8 +547,32 @@ function setExampleInput(){
     document.getElementById(`sandbox-input-arg-5-2`).value = 1;
 
     runSandbox();
+  } else if(exampleInput === "subsets"){
+    document.getElementById(`sandbox-algo-one`).value = `function subsets(array) {
+      if (array.length === 0) {
+        return [[]];
+      }
+
+      const lastElement = array.slice(-1)[0];
+      const subs = subsets(array.slice(0, array.length - 1));
+      return subs.concat(subs.map(sb => sb.concat([lastElement])));
+    }`;
+
+    document.getElementById("sandbox-arg-type-one").value = "sorted";
+
+    document.getElementById(`sandbox-input-arg-1-1`).value = "1";
+    document.getElementById(`sandbox-input-arg-2-1`).value = "5";
+    document.getElementById(`sandbox-input-arg-3-1`).value = "10";
+    document.getElementById(`sandbox-input-arg-4-1`).value = "15";
+    document.getElementById(`sandbox-input-arg-5-1`).value = "20";
+
+    runSandbox();
   }
+  setArgType(1);
+  setArgType(2);
+  setArgType(3);
 }
 
 setExampleInput();
+
 // runSandbox();

@@ -23,9 +23,9 @@
 
         <select id="sandbox-example" onchange={setExampleInput()}>
           <option value="bubblequick" selected>BubbleSort/QuickSort</option>
-          <option value="fibs">Fibonacci Iterative/Recursive</option>
           <option value="binarySearch">Binary Search</option>
           <option value="subsets">Array Subsets</option>
+          <option value="fibs">Fibonacci Iterative/Recursive</option>
           <option value="clear">Clear (custom)</option>
         </select>
 
@@ -60,7 +60,7 @@
               <div id="sandbox-arg-types-box">
                 <label id="arg-type-master-label"> Argument Types </label>
                 <label class="arg-type-label"> Argument 1: </label>
-                <select id="sandbox-arg-type-one">
+                <select id="sandbox-arg-type-one" onchange={setArgType(1)}>
                   <option value="none">None</option>
                   <option value="random" selected>Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
@@ -68,7 +68,7 @@
                   <option value="str">String</option>
                 </select>
                 <label class="arg-type-label"> Argument 2: </label>
-                <select id="sandbox-arg-type-two">
+                <select id="sandbox-arg-type-two" onchange={setArgType(2)}>
                   <option value="none" selected>None</option>
                   <option value="random">Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
@@ -76,7 +76,7 @@
                   <option value="str">String</option>
                 </select>
                 <label class="arg-type-label"> Argument 3: </label>
-                <select id="sandbox-arg-type-three">
+                <select id="sandbox-arg-type-three" onchange={setArgType(3)}>
                   <option value="none" selected>None</option>
                   <option value="random">Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
@@ -107,71 +107,71 @@
           <div id="sandbox-input-container">
             <label class="sandbox-input-label">Input 1:</label>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <label id="sandbox-input-arg-label-1-1">Argument 1:</label>
                 <input type="text" value="1000" id="sandbox-input-arg-1-1"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <label id="sandbox-input-arg-label-1-2">Argument 2:</label>
                 <input type="text" value="" id="sandbox-input-arg-1-2"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <label id="sandbox-input-arg-label-1-3">Argument 3:</label>
                 <input type="text" value="" id="sandbox-input-arg-1-3"> </input>
             </div>
 
             <label class="sandbox-input-label">Input 2:</label>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <label id="sandbox-input-arg-label-2-1">Argument 1:</label>
                 <input type="text" value="10000" id="sandbox-input-arg-2-1"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <label id="sandbox-input-arg-label-2-2">Argument 2:</label>
                 <input type="text" value="" id="sandbox-input-arg-2-2"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <label id="sandbox-input-arg-label-2-3">Argument 3:</label>
                 <input type="text" value="" id="sandbox-input-arg-2-3"> </input>
             </div>
 
             <label class="sandbox-input-label">Input 3:</label>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <label id="sandbox-input-arg-label-3-1">Argument 1:</label>
                 <input type="text" value="" id="sandbox-input-arg-3-1"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <label id="sandbox-input-arg-label-3-2">Argument 2:</label>
                 <input type="text" value="" id="sandbox-input-arg-3-2"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <label id="sandbox-input-arg-label-3-3">Argument 3:</label>
                 <input type="text" value="" id="sandbox-input-arg-3-3"> </input>
             </div>
 
             <label class="sandbox-input-label">Input 4:</label>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <label id="sandbox-input-arg-label-4-1">Argument 1:</label>
                 <input type="text" value="" id="sandbox-input-arg-4-1"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <label id="sandbox-input-arg-label-4-2">Argument 2:</label>
                 <input type="text" value="" id="sandbox-input-arg-4-2"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <label id="sandbox-input-arg-label-4-3">Argument 3:</label>
                 <input type="text" value="" id="sandbox-input-arg-4-3"> </input>
             </div>
 
             <label class="sandbox-input-label">Input 5:</label>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 1:</label>
+                <label id="sandbox-input-arg-label-5-1">Argument 1:</label>
                 <input type="text" value="" id="sandbox-input-arg-5-1"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 2:</label>
+                <label id="sandbox-input-arg-label-5-2">Argument 2:</label>
                 <input type="text" value="" id="sandbox-input-arg-5-2"> </input>
             </div>
             <div class="sandbox-input-box">
-                <label class="sandbox-input-arg-label">Argument 3:</label>
+                <label id="sandbox-input-arg-label-5-3">Argument 3:</label>
                 <input type="text" value="" id="sandbox-input-arg-5-3"> </input>
             </div>
 
