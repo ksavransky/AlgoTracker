@@ -24,7 +24,7 @@
         <select id="sandbox-example" onchange={setExampleInput()}>
           <option value="bubblequick" selected>BubbleSort/QuickSort</option>
           <option value="fibs">Fibonacci Iterative/Recursive</option>
-          <option value="binarysearch">Binary Search</option>
+          <option value="binarySearch">Binary Search</option>
           <option value="subsets">Array Subsets</option>
           <option value="clear">Clear (custom)</option>
         </select>
@@ -35,22 +35,7 @@
               <div class="sandbox-algo-header-label">Algorithm 1:</div>
               <div class="sandbox-algo-info">
                 <textarea rows="20" cols="50" id="sandbox-algo-one">
-function bubbleSort(array){
-var sorted = false;
 
-while(!sorted){
-  sorted= true;
-  for(var i = 0; i < array.length - 1; i++){
-    if(array[i] > array[i + 1]){
-      var hld = array[i];
-      array[i] = array[i + 1];
-      array[i + 1] = hld;
-      sorted = false;
-    }
-  }
-}
-return array;
-}
                 </textarea>
                 <select id="sandbox-algo-one-color">
                   <option value="red" selected>Red</option>
@@ -60,25 +45,7 @@ return array;
               <div class="sandbox-algo-header-label">Algorithm 2:</div>
               <div class="sandbox-algo-info">
                 <textarea rows="20" cols="50" id="sandbox-algo-two">
-function quickSort(array){
-if (array.length < 2) {
-  return array;
-}
 
-  const pivot = array[0];
-  const left = [];
-  const right = [];
-
-  for(var i = 1; i < array.length; i++){
-    if(array[i] <= pivot){
-      left.push(array[i]);
-    } else {
-      right.push(array[i]);
-    }
-  }
-
-  return quickSort(left).concat([pivot]).concat(quickSort(right));
-}
                 </textarea>
                 <select id="sandbox-algo-two-color">
                   <option value="red">Red</option>
@@ -97,26 +64,35 @@ if (array.length < 2) {
                   <option value="none">None</option>
                   <option value="random" selected>Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
-                  <option value="other">Integer/String</option>
+                  <option value="num">Integer</option>
+                  <option value="str">String</option>
                 </select>
                 <label class="arg-type-label"> Argument 2: </label>
                 <select id="sandbox-arg-type-two">
                   <option value="none" selected>None</option>
                   <option value="random">Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
-                  <option value="other">Integer/String</option>
+                  <option value="num">Integer</option>
+                  <option value="str">String</option>
                 </select>
                 <label class="arg-type-label"> Argument 3: </label>
                 <select id="sandbox-arg-type-three">
                   <option value="none" selected>None</option>
                   <option value="random">Randomized Array</option>
                   <option value="sorted">Sorted Array</option>
-                  <option value="other">Integer/String</option>
+                  <option value="num">Integer</option>
+                  <option value="str">String</option>
                 </select>
               </div>
 
 
               <div id="sandbox-axis-scale-box">
+                <div id="sandbox-argument-scale-label">X-Axis Input:</div>
+                <select id="sandbox-argument-axis-scale">
+                  <option value="arg1" selected>Argument 1</option>
+                  <option value="arg2">Argument 2</option>
+                  <option value="arg3">Argument 3</option>
+                </select>
                 <div id="sandbox-axis-scale-label">Graph Axes Scale:</div>
                 <select id="sandbox-axis-scale">
                   <option value="linear">Linear</option>

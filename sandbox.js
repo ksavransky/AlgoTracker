@@ -29,10 +29,14 @@ function runSandbox(){
           inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
           if (!(inputLength > 0)){missingInput = true;}
           argsArray.push(createSortedArray(inputLength));
-        } else if (argsTypeArray[m] === "other"){
-          var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value
-          argsArray.push(arg);
+        } else if (argsTypeArray[m] === "num"){
+          var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
           if (arg == ""){missingInput = true;}
+          argsArray.push(parseInt(arg));
+        } else if (argsTypeArray[m] === "str"){
+          var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
+          if (arg == ""){missingInput = true;}
+          argsArray.push(arg);
         }
       }
 
@@ -101,6 +105,8 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     console.log(algo);
     console.log("arg1:");
     console.log(arg1);
+    console.log("arg1:");
+    console.log(arg2);
 
     if(arg1 instanceof Array){
       arg1 = arg1.slice();
@@ -293,6 +299,20 @@ function changeToSorting(){
 }
 
 function clearInputs(){
+  document.getElementById(`sandbox-algo-one`).value = "";
+  document.getElementById(`sandbox-algo-two`).value = "";
+
+  document.getElementById("sandbox-arg-type-one").value = "none";
+  document.getElementById("sandbox-arg-type-two").value = "none";
+  document.getElementById("sandbox-arg-type-three").value = "none";
+
+  for(var i = 0; i < 5; i++){
+    for(var m = 0; m < 3; m++){
+       document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value = "";
+    }
+  }
+
+
 
 }
 
@@ -338,13 +358,97 @@ function setExampleInput(){
     }`;
 
     document.getElementById("sandbox-arg-type-one").value = "random";
-    document.getElementById(`sandbox-input-arg-1-1`).value = "1000";
-    document.getElementById(`sandbox-input-arg-2-1`).value = "5000";
-    document.getElementById(`sandbox-input-arg-3-1`).value = "10000";
-    document.getElementById(`sandbox-input-arg-4-1`).value = "15000";
-    document.getElementById(`sandbox-input-arg-5-1`).value = "20000";
-  }
 
+    document.getElementById(`sandbox-input-arg-1-1`).value = "1000";
+    document.getElementById(`sandbox-input-arg-2-1`).value = "2500";
+    document.getElementById(`sandbox-input-arg-3-1`).value = "5000";
+    document.getElementById(`sandbox-input-arg-4-1`).value = "7500";
+    document.getElementById(`sandbox-input-arg-5-1`).value = "10000";
+
+    runSandbox();
+  } else if(exampleInput === "clear"){
+    clearInputs();
+  } else if(exampleInput === "fibs"){
+    document.getElementById(`sandbox-algo-one`).value = `function fibonacciIterative(n) {
+      if (n === 0) {
+        return [];
+      } else if (n === 1) {
+        return [0];
+      } else if (n === 2) {
+        return [0, 1];
+      }
+
+      let fibs = [0, 1];
+      while (fibs.length < n) {
+        fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1]);
+      }
+
+      return fibs;
+    }`;
+
+    document.getElementById(`sandbox-algo-two`).value = `function fibonacciRecursive(n) {
+      if (n === 0) {
+        return [];
+      } else if (n === 1) {
+        return [0];
+      } else if (n === 2) {
+        return [0, 1];
+      } else {
+        let fibs = fibonacciRecursive(n - 1);
+        fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
+
+        return fibs;
+      }
+    }`;
+
+    document.getElementById("sandbox-arg-type-one").value = "num";
+
+    document.getElementById(`sandbox-input-arg-1-1`).value = "10";
+    document.getElementById(`sandbox-input-arg-2-1`).value = "100";
+    document.getElementById(`sandbox-input-arg-3-1`).value = "1000";
+    document.getElementById(`sandbox-input-arg-4-1`).value = "5000";
+    document.getElementById(`sandbox-input-arg-5-1`).value = "10000";
+
+    runSandbox();
+
+  } else if(exampleInput === "binarySearch"){
+    document.getElementById(`sandbox-algo-one`).value = `function binarySearch(numbers, target) {
+      if (numbers.length === 0) {
+        return -1;
+      }
+
+      const probeIdx = Math.floor(numbers.length / 2);
+      const probe = numbers[probeIdx];
+      if (target === probe) {
+        return probeIdx;
+      } else if (target < probe) {
+        const left = numbers.slice(0, probeIdx);
+        return binarySearch(left, target);
+      } else {
+        const right = numbers.slice(probeIdx + 1);
+        const subproblem = binarySearch(right, target);
+
+        return subproblem === -1 ? -1 : subproblem + (probeIdx + 1);
+      }
+    }`;
+
+    document.getElementById("sandbox-arg-type-one").value = "sorted";
+    document.getElementById("sandbox-arg-type-two").value = "num";
+
+    document.getElementById(`sandbox-input-arg-1-1`).value = "100000";
+    document.getElementById(`sandbox-input-arg-2-1`).value = "250000";
+    document.getElementById(`sandbox-input-arg-3-1`).value = "500000";
+    document.getElementById(`sandbox-input-arg-4-1`).value = "1000000";
+    document.getElementById(`sandbox-input-arg-5-1`).value = "2000000";
+
+    document.getElementById(`sandbox-input-arg-1-2`).value = 1;
+    document.getElementById(`sandbox-input-arg-2-2`).value = 1;
+    document.getElementById(`sandbox-input-arg-3-2`).value = 1;
+    document.getElementById(`sandbox-input-arg-4-2`).value = 1;
+    document.getElementById(`sandbox-input-arg-5-2`).value = 1;
+
+    runSandbox();
+  }
 }
 
 setExampleInput();
