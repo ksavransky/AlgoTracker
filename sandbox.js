@@ -291,3 +291,61 @@ function draw(){
 function changeToSorting(){
   window.location.href = "index.html";
 }
+
+function clearInputs(){
+
+}
+
+function setExampleInput(){
+  clearInputs();
+  var exampleInput = document.getElementById("sandbox-example").value;
+  if (exampleInput === "bubblequick"){
+    document.getElementById(`sandbox-algo-one`).value = `function bubbleSort(array){
+      var sorted = false;
+
+      while(!sorted){
+        sorted= true;
+        for(var i = 0; i < array.length - 1; i++){
+          if(array[i] > array[i + 1]){
+            var hld = array[i];
+            array[i] = array[i + 1];
+            array[i + 1] = hld;
+            sorted = false;
+          }
+        }
+      }
+      return array;
+    }`;
+
+    document.getElementById(`sandbox-algo-two`).value = `function quickSort(array){
+      if (array.length < 2) {
+        return array;
+      }
+
+        const pivot = array[0];
+        const left = [];
+        const right = [];
+
+        for(var i = 1; i < array.length; i++){
+          if(array[i] <= pivot){
+            left.push(array[i]);
+          } else {
+            right.push(array[i]);
+          }
+        }
+
+        return quickSort(left).concat([pivot]).concat(quickSort(right));
+    }`;
+
+    document.getElementById("sandbox-arg-type-one").value = "random";
+    document.getElementById(`sandbox-input-arg-1-1`).value = "1000";
+    document.getElementById(`sandbox-input-arg-2-1`).value = "5000";
+    document.getElementById(`sandbox-input-arg-3-1`).value = "10000";
+    document.getElementById(`sandbox-input-arg-4-1`).value = "15000";
+    document.getElementById(`sandbox-input-arg-5-1`).value = "20000";
+  }
+
+}
+
+setExampleInput();
+// runSandbox();

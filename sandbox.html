@@ -21,11 +21,20 @@
       <div id="sandbox-container">
         <div id="sandbox-label">Custom Algorithm Performance Grapher</div>
 
+        <select id="sandbox-example" onchange={setExampleInput()}>
+          <option value="bubblequick" selected>BubbleSort/QuickSort</option>
+          <option value="fibs">Fibonacci Iterative/Recursive</option>
+          <option value="binarysearch">Binary Search</option>
+          <option value="subsets">Array Subsets</option>
+          <option value="clear">Clear (custom)</option>
+        </select>
+
+
         <div id="sandbox-box">
           <div id="sandbox-algo-box">
               <div class="sandbox-algo-header-label">Algorithm 1:</div>
               <div class="sandbox-algo-info">
-                <textarea rows="10" cols="50" id="sandbox-algo-one">
+                <textarea rows="20" cols="50" id="sandbox-algo-one">
 function bubbleSort(array){
 var sorted = false;
 
@@ -50,7 +59,7 @@ return array;
               </div>
               <div class="sandbox-algo-header-label">Algorithm 2:</div>
               <div class="sandbox-algo-info">
-                <textarea rows="10" cols="50" id="sandbox-algo-two">
+                <textarea rows="20" cols="50" id="sandbox-algo-two">
 function quickSort(array){
 if (array.length < 2) {
   return array;
