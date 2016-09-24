@@ -10,6 +10,7 @@ function runSandbox(){
   algos = [];
   algoColors = [];
   setAlgos();
+  var missingInputCounter = 0;
   for(var i = 0; i < 5; i++){
 
     var argsArray = [];
@@ -23,22 +24,24 @@ function runSandbox(){
     for(var m = 0; m < 3; m++){
         if (argsTypeArray[m] === "random"){
           inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
-          if (!(inputLength > 0)){missingInput = true;}
+          if (!(inputLength > 0)){missingInput = true; missingInputCounter += 1;}
           argsArray.push(createRandArray(inputLength));
         } else if (argsTypeArray[m]  === "sorted"){
           inputLength = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
-          if (!(inputLength > 0)){missingInput = true;}
+          if (!(inputLength > 0)){missingInput = true; missingInputCounter += 1;}
           argsArray.push(createSortedArray(inputLength));
         } else if (argsTypeArray[m] === "num"){
           var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
-          if (arg == ""){missingInput = true;}
+          if (arg == ""){missingInput = true; missingInputCounter += 1;}
           argsArray.push(parseInt(arg));
         } else if (argsTypeArray[m] === "str"){
           var arg = document.getElementById(`sandbox-input-arg-${i + 1}-${m + 1}`).value;
-          if (arg == ""){missingInput = true;}
+          if (arg == ""){missingInput = true; missingInputCounter += 1;}
           argsArray.push(arg);
         }
       }
+
+
 
     if (!missingInput){
       for(var j = 0; j < algos.length; j++){
@@ -47,7 +50,12 @@ function runSandbox(){
       }
     }
 
+
   }
+  if(missingInputCounter === 5){
+    window.alert(
+      `Error: you are missing inputs. You have selected an argument type but not provided a single input for it. Please either provide at least one input for the argument or switch it to "none."`);
+    }
   draw();
 }
 
@@ -178,10 +186,32 @@ function parseAlgo(algo){
     functionArgCount = 0;
   }
 
+  // var argsSelected = 0;
+  // if(document.getElementById('sandbox-arg-type-one').value !== "none"){
+  //   argsSelected += 1;
+  // }
+  // if(document.getElementById('sandbox-arg-type-two').value !== "none"){
+  //   argsSelected += 1;
+  // }
+  // if(document.getElementById('sandbox-arg-type-three').value !== "none"){
+  //   argsSelected += 1;
+  // }
+  //
+  // console.log("argsSelected:");
+  // console.log(argsSelected);
+
+
   if(functionArgCount !== inputArgCount){
-    console.log(`Error: your function takes ${functionArgCount} arguments
-      but you have inputed ${inputArgCount} arguments.`);
+    window.alert(
+`Error: your function(s) takes ${functionArgCount} argument(s) but your input has ${inputArgCount} argument(s).
+Please make sure the number of arguments your function(s) accept are the same as the number of argument inputs.`);
   }
+
+//   if(functionArgCount !== argsSelected){
+//     window.alert(
+// `Error: your function(s) takes ${functionArgCount} argument(s) but you have selected ${argsSelected} argument types.
+// Please make sure the number of arguments your function(s) accept are the same as the number of selected argument types and set the rest to none.`);
+//   }
   // console.log(argsArray);
   // console.log("functionArgCount:");
   // console.log(functionArgCount);
