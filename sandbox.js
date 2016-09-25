@@ -54,7 +54,7 @@ function runSandbox(){
   }
   if(missingInputCounter === 5){
     window.alert(
-      `Error: you are missing inputs. You have selected an argument type but not provided a single input for it. Please either provide at least one input for the argument or switch it to "none."`);
+      `Error: you are missing inputs. You have selected an argument type but not provided a single input for it. Please either provide at least one input for the argument or change the argument type to "None."`);
     }
   draw();
 }
@@ -113,8 +113,10 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     console.log(algo);
     console.log("arg1:");
     console.log(arg1);
-    console.log("arg1:");
+    console.log("arg2:");
     console.log(arg2);
+    console.log("arg3:");
+    console.log(arg3);
 
     if(arg1 instanceof Array){
       arg1 = arg1.slice();
@@ -203,8 +205,8 @@ function parseAlgo(algo){
 
   if(functionArgCount !== inputArgCount){
     window.alert(
-`Error: your function(s) takes ${functionArgCount} argument(s) but your input has ${inputArgCount} argument(s).
-Please make sure the number of arguments your function(s) accept are the same as the number of argument inputs.`);
+`Error: your algorithm(s) takes ${functionArgCount} argument(s) but your input has ${inputArgCount} argument(s).
+Please make sure the number of arguments your algorithm(s) accept are the same as the number of argument inputs.`);
   }
 
 //   if(functionArgCount !== argsSelected){
@@ -368,6 +370,7 @@ function changeToSorting(){
 }
 
 function clearInputs(){
+  d3.select("div.sort-graph").html("");
   document.getElementById(`sandbox-algo-one`).value = "";
   document.getElementById(`sandbox-algo-two`).value = "";
 
