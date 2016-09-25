@@ -4,8 +4,10 @@ var dataset = [];
 var algos = [];
 var algoColors = [];
 var coords = [];
+var functionName;
 
 function runSandbox(){
+  document.getElementById(`run-log`).value = "";
   dataset = [];
   algos = [];
   algoColors = [];
@@ -109,14 +111,22 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     algo = parseAlgo(algo);
     // console.log(algo);
     //
-    console.log("algorithm:");
+    console.log("Algorithm:");
+    addToLog("Algorithm:");
     console.log(algo);
-    console.log("arg1:");
+    addToLog(algo);
+    console.log("Argument 1:");
+    addToLog("Argument 1:");
     console.log(arg1);
-    console.log("arg2:");
+    addToLog(arg1);
+    console.log("Argument 2:");
+    addToLog("Argument 2:");
     console.log(arg2);
-    console.log("arg3:");
+    addToLog(arg2);
+    console.log("Argument 3:");
+    addToLog("Argument 3:");
     console.log(arg3);
+    addToLog(arg3);
 
     if(arg1 instanceof Array){
       arg1 = arg1.slice();
@@ -170,18 +180,30 @@ function timeTracker(algo, arg1, arg2, arg3, color){
     var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
-    console.log("time elapsed");
+    console.log("Time Elapsed:");
+    addToLog("Time Elapsed:");
     console.log(timeElapsed); //this is in ms
+    addToLog(timeElapsed + " milliseconds.\n"); //this is in ms
     dataset.push([xAxisArg, timeElapsed, algo.name, color]);
-    console.log("result");
+    console.log("Result (return) of Algorithm:");
+    addToLog("Result (return) of Algorithm:");
     console.log(result);
+    if (typeof result === "object"){
+      result = JSON.stringify(result);
+    }
+    if (!(typeof result === "number")){
+      if(result.length > 200){
+        result = result.slice(0, 200) + "..." + "\n";
+      }
+    }
+    addToLog(result + "\n");
   }
 }
 
 function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
-  var functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
+  functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
   // console.log(functionName);
   functionArgCount = argsArray.length;
   if (argsArray[0] == ""){
@@ -404,8 +426,9 @@ function setArgType(argNum){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
          textBox.value = "";
          textBox.disabled = true;
-         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
-         = `Arg ${argNum} (none):`;
+         textBox.style.visibility = "hidden";
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).style.visibility = "hidden";
+        //  .innerHTML = `Arg ${argNum} (none):`;
       }
     }
   } else if (selectedType === "num"){
@@ -413,8 +436,10 @@ function setArgType(argNum){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
          textBox.disabled = false;
+         textBox.style.visibility = "visible";
          document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
          = `Arg ${argNum} (integer):`;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).style.visibility = "visible";
       }
     }
   } else if (selectedType === "str"){
@@ -422,8 +447,10 @@ function setArgType(argNum){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
          textBox.disabled = false;
+         textBox.style.visibility = "visible";
          document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
          = `Arg ${argNum} (string):`;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).style.visibility = "visible";
       }
     }
   } else if (selectedType === "random"){
@@ -431,8 +458,10 @@ function setArgType(argNum){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
          textBox.disabled = false;
+        textBox.style.visibility = "visible";
          document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
          = `Arg ${argNum} (random array) length:`;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).style.visibility = "visible";
       }
     }
   } else if (selectedType === "sorted"){
@@ -440,8 +469,10 @@ function setArgType(argNum){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
          textBox.disabled = false;
+         textBox.style.visibility = "visible";
          document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).innerHTML
          = `Arg ${argNum} (sorted array) length:`;
+         document.getElementById(`sandbox-input-arg-label-${i + 1}-${argNum}`).style.visibility = "visible";
       }
     }
   }
@@ -450,6 +481,7 @@ function setArgType(argNum){
 
 function setExampleInput(){
   clearInputs();
+  document.getElementById(`run-log`).value = "";
   var exampleInput = document.getElementById("sandbox-example").value;
   if (exampleInput === "bubblequick"){
     document.getElementById(`sandbox-algo-one`).value = `function bubbleSort(array){
@@ -604,6 +636,38 @@ function setExampleInput(){
   setArgType(1);
   setArgType(2);
   setArgType(3);
+}
+
+function addToLog(str){
+  if (typeof str === "undefined"){
+    str = "";
+  }
+
+  if (typeof str === "number"){
+    str = parseInt(str);
+  }
+
+  if (str instanceof Array){
+    str = str.toString();
+    str = "[" + str + "]";
+    if(str.length > 200){
+      str = str.slice(0, 200) + "..." + "\n";
+    }
+  }
+
+  if (typeof str === "function"){
+    str = '' + str;
+    var exp = new RegExp("anonymous", 'gi');
+    str = str.replace(exp, `${functionName}`);
+    var exp2 = new RegExp("arguments.callee", 'gi');
+    str = str.replace(exp2, `${functionName}`);
+  }
+
+
+  var txt = document.getElementById(`run-log`).value
+  ;
+
+  document.getElementById(`run-log`).value = txt + str + "\n";
 }
 
 setExampleInput();

@@ -146,3 +146,7 @@ body{
   margin-top: -20px;
   color: black;
 }
+
+#run-log-container{
+  margin-left: 20px;
+}
