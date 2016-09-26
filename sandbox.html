@@ -43,27 +43,33 @@
 
         <div id="sandbox-box">
           <div id="sandbox-algo-box">
-              <div class="sandbox-algo-header-label">Algorithm 1:</div>
-              <div class="sandbox-algo-info">
-                <textarea rows="20" cols="50" id="sandbox-algo-one" placeholder="Please use 'function name(){...}' notation for your algorithm,
-and place any helper functions inside the body of the
-main algorithm-function being tested.">
-                </textarea>
+              <div class="algo-label-div">
+                <div class="sandbox-algo-header-label">Algorithm 1</div>
                 <select id="sandbox-algo-one-color">
                   <option value="red" selected>Red</option>
                   <option value="blue">Blue</option>
                 </select>
               </div>
-              <div class="sandbox-algo-header-label">Algorithm 2:</div>
               <div class="sandbox-algo-info">
-                <textarea rows="20" cols="50" id="sandbox-algo-two" placeholder="Please use 'function name(){...}' notation for your algorithm,
+                <textarea rows="17" cols="50" id="sandbox-algo-one" placeholder="Please use 'function name(){...}' notation for your algorithm,
 and place any helper functions inside the body of the
 main algorithm-function being tested.">
                 </textarea>
+
+              </div>
+              <div class="algo-label-div">
+                <div class="sandbox-algo-header-label">Algorithm 2</div>
                 <select id="sandbox-algo-two-color">
                   <option value="red">Red</option>
                   <option value="blue" selected>Blue</option>
                 </select>
+              </div>
+              <div class="sandbox-algo-info">
+                <textarea rows="17" cols="50" id="sandbox-algo-two" placeholder="Please use 'function name(){...}' notation for your algorithm,
+and place any helper functions inside the body of the
+main algorithm-function being tested.">
+                </textarea>
+
               </div>
 
             </div>
@@ -104,86 +110,19 @@ main algorithm-function being tested.">
                 </div>
               </div>
 
-              <div id="sandbox-input-container">
-                <label class="sandbox-input-label">Input 1:</label>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-1-1">Argument 1:</label>
-                    <input type="text" value="1000" id="sandbox-input-arg-1-1"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-1-2">Argument 2:</label>
-                    <input type="text" value="" id="sandbox-input-arg-1-2"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-1-3">Argument 3:</label>
-                    <input type="text" value="" id="sandbox-input-arg-1-3"> </input>
-                </div>
-
-                <label class="sandbox-input-label">Input 2:</label>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-2-1">Argument 1:</label>
-                    <input type="text" value="10000" id="sandbox-input-arg-2-1"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-2-2">Argument 2:</label>
-                    <input type="text" value="" id="sandbox-input-arg-2-2"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-2-3">Argument 3:</label>
-                    <input type="text" value="" id="sandbox-input-arg-2-3"> </input>
-                </div>
-
-                <label class="sandbox-input-label">Input 3:</label>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-3-1">Argument 1:</label>
-                    <input type="text" value="" id="sandbox-input-arg-3-1"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-3-2">Argument 2:</label>
-                    <input type="text" value="" id="sandbox-input-arg-3-2"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-3-3">Argument 3:</label>
-                    <input type="text" value="" id="sandbox-input-arg-3-3"> </input>
-                </div>
-
-                <label class="sandbox-input-label">Input 4:</label>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-4-1">Argument 1:</label>
-                    <input type="text" value="" id="sandbox-input-arg-4-1"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-4-2">Argument 2:</label>
-                    <input type="text" value="" id="sandbox-input-arg-4-2"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-4-3">Argument 3:</label>
-                    <input type="text" value="" id="sandbox-input-arg-4-3"> </input>
-                </div>
-
-                <label class="sandbox-input-label">Input 5:</label>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-5-1">Argument 1:</label>
-                    <input type="text" value="" id="sandbox-input-arg-5-1"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-5-2">Argument 2:</label>
-                    <input type="text" value="" id="sandbox-input-arg-5-2"> </input>
-                </div>
-                <div class="sandbox-input-box">
-                    <label id="sandbox-input-arg-label-5-3">Argument 3:</label>
-                    <input type="text" value="" id="sandbox-input-arg-5-3"> </input>
-                </div>
-              </div>
-
 
               <div id="sandbox-axis-scale-box">
+                <div id="graphing-options"> Graphing Options </div>
                 <div id="sandbox-argument-scale-label">X-Axis Input:</div>
-                <select id="sandbox-argument-axis-scale">
-                  <option value="arg1" selected>Argument 1</option>
-                  <option value="arg2">Argument 2</option>
-                  <option value="arg3">Argument 3</option>
-                </select>
+                <div id="run-axis-box">
+                  <select id="sandbox-argument-axis-scale">
+                    <option value="arg1" selected>Argument 1</option>
+                    <option value="arg2">Argument 2</option>
+                    <option value="arg3">Argument 3</option>
+                  </select>
+                  <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
+                </div>
+
                 <div id="sandbox-axis-scale-label">Graph Axes Scale:</div>
                 <select id="sandbox-axis-scale">
                   <option value="linear">Linear</option>
@@ -192,7 +131,97 @@ main algorithm-function being tested.">
               </div>
 
 
-              <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
+              <div id="run-log-container">
+                <div id="run-log-label"> Run Log </div>
+                <textarea rows="19" cols="42" id="run-log"></textarea>
+              </div>
+            </div>
+
+            <div id="sandbox-input-container">
+              <div id="inputs-label"> Inputs </div>
+
+              <div class="input-box">
+                <label class="sandbox-input-label">Input 1:</label>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-1-1">Argument 1:</label>
+                    <input type="text" value="1000" class="input-textbox" id="sandbox-input-arg-1-1"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-1-2">Argument 2:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-1-2"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-1-3">Argument 3:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-1-3"> </input>
+                </div>
+              </div>
+
+              <div class="input-box">
+                <label class="sandbox-input-label">Input 2:</label>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-2-1">Argument 1:</label>
+                    <input type="text" value="10000" class="input-textbox" id="sandbox-input-arg-2-1"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-2-2">Argument 2:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-2-2"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-2-3">Argument 3:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-2-3"> </input>
+                </div>
+              </div>
+
+              <div class="input-box">
+                <label class="sandbox-input-label">Input 3:</label>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-3-1">Argument 1:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-1"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-3-2">Argument 2:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-2"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-3-3">Argument 3:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-3"> </input>
+                </div>
+              </div>
+            </div>
+
+
+            <div id="inputs-right">
+              <div class="input-box" id="input-box-four">
+                <label class="sandbox-input-label">Input 4:</label>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-4-1">Argument 1:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-1"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-4-2">Argument 2:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-2"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-4-3">Argument 3:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-3"> </input>
+                </div>
+              </div>
+
+              <div class="input-box">
+                <label class="sandbox-input-label">Input 5:</label>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-5-1">Argument 1:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-1"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-5-2">Argument 2:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-2"> </input>
+                </div>
+                <div class="sandbox-input-box">
+                    <label id="sandbox-input-arg-label-5-3">Argument 3:</label>
+                    <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-3"> </input>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -207,10 +236,6 @@ main algorithm-function being tested.">
           <div id="length-of-array-label"> Length of Input Array </div>
         </div>
 
-
-      <div id="run-log-container">
-        <textarea rows="20" cols="50" id="run-log"></textarea>
-      </div>
     </div>
 
       <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
