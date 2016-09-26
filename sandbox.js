@@ -435,6 +435,11 @@ function setArgType(argNum){
 
 }
 
+function clearButton(){
+  document.getElementById("sandbox-example").value = "clear";
+  setExampleInput();
+}
+
 function setExampleInput(){
   clearInputs();
   document.getElementById(`run-log`).value = "";
@@ -628,15 +633,15 @@ function addToLog(str){
 
 setExampleInput();
 
-document.onreadystatechange = function () {
-  var state = document.readyState;
-  if (state == 'interactive') {
-       document.getElementById('contents').style.visibility="hidden";
-  } else if (state == 'complete') {
-      setTimeout(function(){
-         document.getElementById('interactive');
-         document.getElementById('load').style.visibility="hidden";
-         document.getElementById('contents').style.visibility="visible";
-      },1000);
-  }
-};
+// document.onreadystatechange = function () {
+//   var state = document.readyState;
+//   if (state == 'interactive') {
+//        document.getElementById('contents').style.visibility="hidden";
+//   } else if (state == 'complete') {
+//       setTimeout(function(){
+//          document.getElementById('interactive');
+//          document.getElementById('load').style.visibility="hidden";
+//          document.getElementById('contents').style.visibility="visible";
+//       },1000);
+//   }
+// };

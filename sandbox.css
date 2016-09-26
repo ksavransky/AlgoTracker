@@ -16,13 +16,13 @@ body{
   flex-direction: column;
 }
 
-#load{
+/*#load{
     width:100%;
     height:100%;
     position:fixed;
     z-index:9999;
     background:url("./assets/loading.gif") no-repeat center center rgba(0,0,0,0.25)
-}
+}*/
 
 #title{
   margin-left: 15px;
@@ -58,8 +58,34 @@ body{
   border-right: 1px solid black;
   background: #84b3ff;
 }
-#change-to-sorting{
 
+#sandbox-example-box{
+  display: flex;
+  flex-direction: row;
+}
+
+#sandbox-example-label{
+  display: flex;
+  margin-right: 5px;
+}
+
+#sandbox-example-clear-button{
+  margin-top: 5px;
+  margin-left: 1px;
+  margin-bottom: 5px;
+  border: solid 2px black;
+  border-radius: 5px;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  background: #6ceeff;
+  cursor: pointer;
+}
+
+#contents{
+  display: flex;
+  flex-direction: row;
+  font-size: 15px;
 }
 
 
@@ -68,6 +94,32 @@ body{
   flex-direction: column;
   margin-left: 15px;
   margin-bottom: 5px;
+}
+
+.sandbox-input-box{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+}
+
+#arg-type-master-label{
+  margin-bottom: 5px;
+}
+
+.arg-type-label{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.sandbox-arg-type{
+  width: 150px;
+  margin-left: 5px;
+  margin-top: 4px;
+}
+
+.arg-type{
+  display: flex;
+  flex-direction: row;
 }
 
 #sandbox-label{
@@ -86,6 +138,7 @@ body{
 
 #sandbox-algo-box{
   flex-direction: column;
+  margin-left: 40px;
 }
 
 #sandbox-algo-one{
