@@ -14,10 +14,17 @@
         Algorithm Performance Grapher
        </div>
 
-      <div id="change-to-sorting" onclick={changeToSorting()}>
-          Go To Sorting Algorithms
-      </div>
+       <div id="navbar">
+           <div id="change-to-sorting" class="nav-button" onclick={changeToSorting()}>
+               Sorting Grapher
+           </div>
+           <div id="change-to-sandbox" class="nav-button" onclick={location.reload()}>
+               Custom Grapher
+           </div>
+       </div>
 
+      <div id="load"></div>
+      <div id="contents">
       <div id="sandbox-container">
         <div id="sandbox-label">Custom Algorithm Performance Grapher</div>
 
@@ -196,6 +203,7 @@ main algorithm-function being tested.">
       <div id="run-log-container">
         <textarea rows="20" cols="50" id="run-log"></textarea>
       </div>
+    </div>
 
       <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
 

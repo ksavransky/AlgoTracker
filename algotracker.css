@@ -16,6 +16,14 @@ body{
   flex-direction: column;
 }
 
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("./assets/loading.gif") no-repeat center center rgba(0,0,0,0.25)
+}
+
 #title{
   margin-left: 15px;
   margin-top: 10px;
@@ -27,6 +35,30 @@ body{
 #title-description{
   margin-left: 15px;
   margin-bottom: 15px;
+}
+
+#navbar{
+  display: flex;
+  flex-direction: row;
+  margin-left: 15px;
+  margin-bottom: 15px;
+  background: #e8e8e8;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  border-right: 1px solid black;
+}
+
+.nav-button{
+  border-left: 1px solid black;
+  padding: 5px;
+  cursor: pointer;
+}
+
+#change-to-sandbox{
+  border-right: 1px solid black;
+}
+#change-to-sorting{
+  background: #84b3ff;
 }
 
 #sort-container{

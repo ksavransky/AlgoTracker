@@ -98,34 +98,21 @@ var functionArgCount;
 function timeTracker(algo, arg1, arg2, arg3, color){
   if(algo.includes("function")){
     var startTime = new Date();
-    // console.log(arg1);
-    // console.log(arg2);
-    // console.log(arg3);
     inputArgCount = 0;
     [arg1, arg2, arg3].forEach(function(arg){
       if(typeof arg !== "undefined")
       inputArgCount += 1;
     });
-    // console.log("input argument count");
-    // console.log(inputArgCount);
+
     algo = parseAlgo(algo);
-    // console.log(algo);
-    //
-    console.log("Algorithm:");
+
     addToLog("Algorithm:");
-    console.log(algo);
     addToLog(algo);
-    console.log("Argument 1:");
     addToLog("Argument 1:");
-    console.log(arg1);
     addToLog(arg1);
-    console.log("Argument 2:");
     addToLog("Argument 2:");
-    console.log(arg2);
     addToLog(arg2);
-    console.log("Argument 3:");
     addToLog("Argument 3:");
-    console.log(arg3);
     addToLog(arg3);
 
     if(arg1 instanceof Array){
@@ -176,18 +163,13 @@ function timeTracker(algo, arg1, arg2, arg3, color){
       }
     }
 
-
     var result = algo(arg1, arg2, arg3);
     var endTime = new Date();
     var timeElapsed = endTime - startTime;
-    console.log("Time Elapsed:");
     addToLog("Time Elapsed:");
-    console.log(timeElapsed); //this is in ms
     addToLog(timeElapsed + " milliseconds.\n"); //this is in ms
     dataset.push([xAxisArg, timeElapsed, algo.name, color]);
-    console.log("Result (return) of Algorithm:");
-    addToLog("Result (return) of Algorithm:");
-    console.log(result);
+    addToLog("Return of Algorithm:");
     if (typeof result === "object"){
       result = JSON.stringify(result);
     }
@@ -204,42 +186,16 @@ function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
   functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
-  // console.log(functionName);
   functionArgCount = argsArray.length;
   if (argsArray[0] == ""){
     functionArgCount = 0;
   }
-
-  // var argsSelected = 0;
-  // if(document.getElementById('sandbox-arg-type-one').value !== "none"){
-  //   argsSelected += 1;
-  // }
-  // if(document.getElementById('sandbox-arg-type-two').value !== "none"){
-  //   argsSelected += 1;
-  // }
-  // if(document.getElementById('sandbox-arg-type-three').value !== "none"){
-  //   argsSelected += 1;
-  // }
-  //
-  // console.log("argsSelected:");
-  // console.log(argsSelected);
-
 
   if(functionArgCount !== inputArgCount){
     window.alert(
 `Error: your algorithm(s) takes ${functionArgCount} argument(s) but your input has ${inputArgCount} argument(s).
 Please make sure the number of arguments your algorithm(s) accept are the same as the number of argument inputs.`);
   }
-
-//   if(functionArgCount !== argsSelected){
-//     window.alert(
-// `Error: your function(s) takes ${functionArgCount} argument(s) but you have selected ${argsSelected} argument types.
-// Please make sure the number of arguments your function(s) accept are the same as the number of selected argument types and set the rest to none.`);
-//   }
-  // console.log(argsArray);
-  // console.log("functionArgCount:");
-  // console.log(functionArgCount);
-  // console.log(argsArray);
 
   var cnt = 0;
   var lastBracket;
@@ -672,4 +628,15 @@ function addToLog(str){
 
 setExampleInput();
 
-// runSandbox();
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'interactive') {
+       document.getElementById('contents').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('contents').style.visibility="visible";
+      },1000);
+  }
+};

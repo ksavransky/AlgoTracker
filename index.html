@@ -14,10 +14,17 @@
         Algorithm Performance Grapher
        </div>
 
-      <div id="change-to-sandbox" onclick={changeToSandbox()}>
-          Go To Sandbox
+      <div id="navbar">
+          <div id="change-to-sorting" class="nav-button" onclick={location.reload()}>
+              Sorting Grapher
+          </div>
+          <div id="change-to-sandbox" class="nav-button" onclick={changeToSandbox()}>
+              Custom Grapher
+          </div>
       </div>
 
+      <div id="load"></div>
+      <div id="contents">
       <div id="sort-container">
         <div id="sort-label">Sorting Algorithm Performance Grapher</div>
 
@@ -167,6 +174,7 @@
           <div id="length-of-array-label"> Length of Array </div>
         </div>
       </div>
+    </div>
 
 
       <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
