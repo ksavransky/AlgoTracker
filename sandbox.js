@@ -7,6 +7,7 @@ var coords = [];
 var functionName;
 
 function runSandbox(){
+  window.location.hash = '#sandbox-label';
   document.getElementById(`run-log`).value = "";
   dataset = [];
   algos = [];
@@ -59,6 +60,9 @@ function runSandbox(){
       `Error: you are missing inputs. You have selected an argument type but not provided a single input for it. Please either provide at least one input for the argument or change the argument type to "None."`);
     }
   draw();
+  window.location.hash = '#run-log-label';
+
+
 }
 
 function setAlgos(){
@@ -340,6 +344,7 @@ function draw(){
      .attr("class", "axis")
      .attr("transform", "translate(" + padding + ",0)")
      .call(yAxis);
+
 
 }
 
