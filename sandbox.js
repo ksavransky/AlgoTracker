@@ -659,7 +659,7 @@ function addToLog(str){
     str = str.toString();
     str = "[" + str + "]";
     if(str.length > 200){
-      str = str.slice(0, 100) + "..." + "\n";
+      str = str.slice(0, 100) + "...";
     }
   }
 
