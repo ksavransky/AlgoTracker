@@ -482,7 +482,7 @@ function setExampleInput(){
         }
       }
       return array;
-    }`;
+}`;
 
     document.getElementById(`sandbox-algo-two`).value = `function quickSort(array){
       if (array.length < 2) {
@@ -502,7 +502,7 @@ function setExampleInput(){
         }
 
         return quickSort(left).concat([pivot]).concat(quickSort(right));
-    }`;
+}`;
 
     document.getElementById("sandbox-arg-type-one").value = "random";
 
@@ -531,7 +531,7 @@ function setExampleInput(){
       }
 
       return fibs;
-    }`;
+}`;
 
     document.getElementById(`sandbox-algo-two`).value = `function fibonacciRecursive(n) {
       if (n === 0) {
@@ -546,7 +546,7 @@ function setExampleInput(){
 
         return fibs;
       }
-    }`;
+}`;
 
     document.getElementById("sandbox-arg-type-one").value = "num";
 
@@ -577,7 +577,7 @@ function setExampleInput(){
 
         return subproblem === -1 ? -1 : subproblem + (probeIdx + 1);
       }
-    }`;
+}`;
 
     document.getElementById("sandbox-arg-type-one").value = "sorted";
     document.getElementById("sandbox-arg-type-two").value = "num";
@@ -604,7 +604,7 @@ function setExampleInput(){
       const lastElement = array.slice(-1)[0];
       const subs = subsets(array.slice(0, array.length - 1));
       return subs.concat(subs.map(sb => sb.concat([lastElement])));
-    }`;
+}`;
 
     document.getElementById("sandbox-arg-type-one").value = "sorted";
 
