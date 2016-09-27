@@ -85,6 +85,7 @@ body{
 
 #sort-algo-box{
   flex-direction: column;
+  margin-left: 10px;
   width: 275px;
 }
 #sort-input-box{
@@ -126,7 +127,7 @@ body{
 
 #axis-scale-box{
   margin-top: 5px;
-  margin-left: 20px;
+  margin-left: 21px;
   display: flex;
   flex-direction: row;
 }
