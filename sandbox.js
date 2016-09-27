@@ -5,6 +5,7 @@ var algos = [];
 var algoColors = [];
 var coords = [];
 var functionName;
+var noneInputs = [false, false, false];
 
 function runSandbox(){
   // window.location.hash = '#sandbox-label';
@@ -372,6 +373,10 @@ function clearInputs(){
 
 // var inputInvisible = 0;
 
+function setNoneInput(idx, bool){
+  noneInputs[idx] = bool;
+}
+
 function setArgType(argNum){
   var selectedValue;
   if (argNum === 1){
@@ -384,6 +389,7 @@ function setArgType(argNum){
   var selectedType = document.getElementById(`sandbox-arg-type-${selectedValue}`).value;
 
   if (selectedType === "none"){
+    setNoneInput(argNum - 1, true);
     //  inputInvisible += 1;
     // inputBoxClass.style.height =  - "50px";
     for(var i = 0; i < 5; i++){
@@ -397,6 +403,7 @@ function setArgType(argNum){
       }
     }
   } else if (selectedType === "num"){
+    setNoneInput(argNum - 1, false);
     // inputInvisible -= 1;
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
@@ -409,6 +416,7 @@ function setArgType(argNum){
       }
     }
   } else if (selectedType === "str"){
+    setNoneInput(argNum - 1, false);
     // inputInvisible -= 1;
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
@@ -421,6 +429,7 @@ function setArgType(argNum){
       }
     }
   } else if (selectedType === "random"){
+    setNoneInput(argNum - 1, false);
     // inputInvisible -= 1;
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
@@ -433,6 +442,7 @@ function setArgType(argNum){
       }
     }
   } else if (selectedType === "sorted"){
+    setNoneInput(argNum - 1, false);
     // inputInvisible -= 1;
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
@@ -447,7 +457,7 @@ function setArgType(argNum){
   }
 
 
-  // resizeInputs();
+  resizeInputs();
 
 }
 
@@ -614,10 +624,31 @@ function setExampleInput(){
   setArgType(1);
   setArgType(2);
   setArgType(3);
-  // resizeInputs();
+  resizeInputs();
 }
 
-// function resizeInputs(){
+function resizeInputs(){
+
+  var inputBoxClass = document.getElementsByClassName("input-box");
+
+  if(noneInputs[2] && noneInputs[1] && noneInputs[0]){
+    for(var i = 0; i < 5; i++){
+       inputBoxClass[i].style.height = "20px";
+    }
+  } else if(noneInputs[2] && noneInputs[1]){
+    for(var i = 0; i < 5; i++){
+       inputBoxClass[i].style.height = "55px";
+    }
+  } else if(noneInputs[2]){
+    for(var i = 0; i < 5; i++){
+       inputBoxClass[i].style.height = "100px";
+    }
+  } else {
+    for(var i = 0; i < 5; i++){
+       inputBoxClass[i].style.height = "150px";
+    }
+  }
+
 //   if(inputInvisible === 0){
 //     var inputBoxClass = document.getElementsByClassName("input-box");
 //     for(var i = 0; i < 5; i++){
@@ -639,7 +670,7 @@ function setExampleInput(){
 //       inputBoxClass[i].style.height = "20px";
 //     }
 //   }
-// }
+}
 
 function addToLog(str){
   if (typeof str === "undefined"){
