@@ -8,7 +8,7 @@ var functionName;
 var noneInputs = [false, false, false];
 
 function runSandbox(){
-  // window.location.hash = '#sandbox-label';
+
   document.getElementById(`run-log`).value = "";
   dataset = [];
   algos = [];
@@ -371,7 +371,6 @@ function clearInputs(){
   }
 }
 
-// var inputInvisible = 0;
 
 function setNoneInput(idx, bool){
   noneInputs[idx] = bool;
@@ -390,8 +389,7 @@ function setArgType(argNum){
 
   if (selectedType === "none"){
     setNoneInput(argNum - 1, true);
-    //  inputInvisible += 1;
-    // inputBoxClass.style.height =  - "50px";
+
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
@@ -404,7 +402,7 @@ function setArgType(argNum){
     }
   } else if (selectedType === "num"){
     setNoneInput(argNum - 1, false);
-    // inputInvisible -= 1;
+
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
@@ -417,7 +415,7 @@ function setArgType(argNum){
     }
   } else if (selectedType === "str"){
     setNoneInput(argNum - 1, false);
-    // inputInvisible -= 1;
+
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
@@ -430,7 +428,7 @@ function setArgType(argNum){
     }
   } else if (selectedType === "random"){
     setNoneInput(argNum - 1, false);
-    // inputInvisible -= 1;
+
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
@@ -443,7 +441,7 @@ function setArgType(argNum){
     }
   } else if (selectedType === "sorted"){
     setNoneInput(argNum - 1, false);
-    // inputInvisible -= 1;
+
     for(var i = 0; i < 5; i++){
       for(var m = 0; m < 3; m++){
          var textBox = document.getElementById(`sandbox-input-arg-${i + 1}-${argNum}`);
@@ -456,9 +454,7 @@ function setArgType(argNum){
     }
   }
 
-
   resizeInputs();
-
 }
 
 function clearButton(){
@@ -620,7 +616,7 @@ function setExampleInput(){
 
     runSandbox();
   }
-  // inputInvisible = 0;
+
   setArgType(1);
   setArgType(2);
   setArgType(3);
@@ -648,28 +644,6 @@ function resizeInputs(){
        inputBoxClass[i].style.height = "150px";
     }
   }
-
-//   if(inputInvisible === 0){
-//     var inputBoxClass = document.getElementsByClassName("input-box");
-//     for(var i = 0; i < 5; i++){
-//       inputBoxClass[i].style.height = "150px";
-//     }
-//   } else if(inputInvisible === 1){
-//     var inputBoxClass = document.getElementsByClassName("input-box");
-//     for(var i = 0; i < 5; i++){
-//       inputBoxClass[i].style.height = "100px";
-//     }
-//   } else if(inputInvisible === 2){
-//     var inputBoxClass = document.getElementsByClassName("input-box");
-//     for(var i = 0; i < 5; i++){
-//       inputBoxClass[i].style.height = "55px";
-//     }
-//   } else if(inputInvisible === 3){
-//     var inputBoxClass = document.getElementsByClassName("input-box");
-//     for(var i = 0; i < 5; i++){
-//       inputBoxClass[i].style.height = "20px";
-//     }
-//   }
 }
 
 function addToLog(str){

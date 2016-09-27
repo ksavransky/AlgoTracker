@@ -70,7 +70,7 @@ body{
 }
 
 #sort-label{
-  margin-left: 250px;
+  margin-left: 375px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -80,11 +80,26 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 750px;
+  /*width: 750px;*/
 }
 
 #sort-algo-box{
   flex-direction: column;
+  width: 275px;
+}
+#sort-input-box{
+  display: flex;
+  flex-direction: column;
+  width: 300px
+}
+
+#sort-algo-main-label{
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+#sort-input-main-label{
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .sort-algo-info{
@@ -106,12 +121,19 @@ body{
 
 .sort-array-box{
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 #axis-scale-box{
-  margin-top: 20px;
+  margin-top: 5px;
+  margin-left: 20px;
   display: flex;
   flex-direction: row;
+}
+
+#axis-main-label{
+  font-weight: bold;
+  margin-left: 20px;
 }
 
 #axis-scale-label{
@@ -119,8 +141,8 @@ body{
 }
 
 #sort-button{
-  margin-top: 14px;
-  margin-left: 54px;
+  margin-top: 11px;
+  margin-left: 20px;
   border: solid 2px black;
   border-radius: 5px;
   width: 100px;
