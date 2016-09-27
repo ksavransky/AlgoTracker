@@ -259,8 +259,8 @@ function draw(){
     axisScale = "linear";
   }
 
-  var w = 700;
-  var h = 700;
+  var w = 600;
+  var h = 600;
   var padding = 50;
 
   var svg = d3.select("div.sort-graph")

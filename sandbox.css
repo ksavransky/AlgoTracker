@@ -131,7 +131,7 @@ body{
 }
 
 #sandbox-label{
-  margin-left: 375px;
+  margin-left: 0px;
   margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
@@ -184,13 +184,16 @@ body{
 }
 
 #sandbox-axis-scale-box{
-  margin-top: 5px;
+  margin-top: -70px;
   display: flex;
   flex-direction: column;
 }
 
 #above-graph-box{
-  margin-left: 20px;
+  margin-left: 103px;
+  margin-top: 48px;
+  position: absolute;
+  z-index: 10;
 }
 
 #graphing-options{
@@ -216,8 +219,8 @@ body{
 }
 
 #sandbox-run-button{
-  margin-top: 4px;
-  margin-left: 54px;
+  margin-top: -1px;
+  margin-left: 5px;
   border: solid 2px black;
   border-radius: 5px;
   width: 100px;
@@ -236,11 +239,13 @@ body{
 
 #time-perf-label{
   margin-top: 20px;
-  margin-left: 308px;
+  margin-left: 260px;
   font-weight: bold;
+  font-size: 16px;
 }
 
 #sort-graph-inner{
+  margin-top: -35px;
   display: flex;
   flex-direction: row;
 }
@@ -301,14 +306,14 @@ body{
   display: flex;
   transform: rotate(270deg);
   transform-origin: left top 0;
-  margin-top: 400px;
+  margin-top: 310px;
   margin-left: 20px;
   width: 190px;
   color: black;
 }
 
 #length-of-array-label{
-  margin-left: 335px;
+  margin-left: 295px;
   margin-top: -20px;
   color: black;
 }
