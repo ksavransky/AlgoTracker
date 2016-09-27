@@ -659,7 +659,7 @@ function addToLog(str){
     str = str.toString();
     str = "[" + str + "]";
     if(str.length > 200){
-      str = str.slice(0, 200) + "..." + "\n";
+      str = str.slice(0, 100) + "..." + "\n";
     }
   }
 
@@ -669,6 +669,7 @@ function addToLog(str){
     str = str.replace(exp, `${functionName}`);
     var exp2 = new RegExp("arguments.callee", 'gi');
     str = str.replace(exp2, `${functionName}`);
+    str = str.slice(0, 100) + "..." + "\n";
   }
 
 
