@@ -181,6 +181,8 @@ function timeTracker(algo, arg1, arg2, arg3, color){
       }
     }
     addToLog(result + "\n");
+
+
   }
 }
 
