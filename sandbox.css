@@ -40,13 +40,14 @@ body{
 
 #navbar{
   display: flex;
-  flex-direction: row;
-  margin-left: 15px;
-  margin-bottom: 15px;
-  background: #e8e8e8;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    background: #e8e8e8;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* border-right: 1px solid black; */
+    width: 257px;
 }
 
 .nav-button{
@@ -63,6 +64,8 @@ body{
 #sandbox-example-box{
   display: flex;
   flex-direction: row;
+  margin-bottom: 5px;
+  width: 270px;
 }
 
 #sandbox-example-label{
@@ -71,8 +74,8 @@ body{
 }
 
 #sandbox-example-clear-button{
-  margin-top: -1px;
-  margin-left: 39px;
+  margin-top: -6px;
+  margin-left: 5px;
   margin-bottom: 5px;
   border: solid 2px black;
   border-radius: 5px;
@@ -98,6 +101,7 @@ body{
 }
 
 #sandbox-input-box{
+  margin-top: -65px;
   margin-left: 30px;
   margin-right: 5px;
 }
@@ -107,6 +111,12 @@ body{
   flex-direction: column;
   width: 200px;
   font-size: 12px;
+}
+
+#sandbox-input-container{
+  display: flex;
+  flex-direction: column;
+  width: 175px;
 }
 
 #arg-type-master-label{
@@ -184,16 +194,29 @@ body{
 }
 
 #sandbox-axis-scale-box{
-  margin-top: -70px;
+  margin-top: -102px;
   display: flex;
   flex-direction: column;
 }
 
 #above-graph-box{
   margin-left: 103px;
-  margin-top: 48px;
+  margin-top: 5px;
   position: absolute;
   z-index: 10;
+}
+
+#below-graph-box{
+  display: flex;
+  flex-direction: row;
+  margin-left: 90px;
+  margin-top: -20px;
+}
+
+#sandbox-argument-scale-label{
+  display: flex;
+  margin-right: 5px;
+
 }
 
 #graphing-options{
@@ -207,9 +230,9 @@ body{
 }
 
 #sandbox-argument-axis-scale{
-  margin-top: 5px;
+  margin-top: 0px;
   margin-bottom: 5px;
-  width: 120px;
+  width: 90px;
 }
 
 #sandbox-axis-scale{
@@ -219,8 +242,9 @@ body{
 }
 
 #sandbox-run-button{
-  margin-top: -1px;
+  margin-top: 0px;
   margin-left: 5px;
+  margin-bottom: 15px;
   border: solid 2px black;
   border-radius: 5px;
   width: 100px;
@@ -299,7 +323,7 @@ body{
 }
 
 .sort-graph{
-  margin-left: -170px;
+  margin-left: -177px;
 }
 
 #milliseconds-label{
@@ -313,11 +337,14 @@ body{
 }
 
 #length-of-array-label{
-  margin-left: 295px;
-  margin-top: -20px;
+  margin-left: 34px;
+  margin-top: 0px;
   color: black;
 }
 
 #run-log-container{
-  margin-left: 0px;
+  margin-left: 1050px;
+  margin-top: 300px;
+  position: absolute;
+  top: 0;
 }
