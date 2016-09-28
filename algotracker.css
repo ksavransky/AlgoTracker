@@ -45,23 +45,27 @@ body{
     margin-left: 15px;
     margin-bottom: 15px;
     background: #e8e8e8;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-    /* border-right: 1px solid black; */
+    border: 1px solid black;
+    border-radius: 5px;
     width: 257px;
 }
 
 .nav-button{
-  border-left: 1px solid black;
   padding: 5px;
   cursor: pointer;
 }
 
 #change-to-sandbox{
-  border-right: 1px solid black;
+  background: whitesmoke;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 #change-to-sorting{
-  background: #84b3ff;
+  background: rgb(0, 255, 13);
+  border-radius: 5px;
+  border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-right: solid 1px black;
 }
 
 #sort-container{
