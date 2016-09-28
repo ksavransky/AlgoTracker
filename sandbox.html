@@ -28,7 +28,7 @@
 
         <div id="sandbox-example-box">
           <label id="sandbox-example-label"> Examples: </label>
-          <select id="sandbox-example" onchange={setExampleInput()}>
+          <select id="sandbox-example" onchange={setExampleInput()} class="styled-select blue semi-square">
             <option value="bubblequick" selected>BubbleSort/QuickSort</option>
             <option value="binarySearch">Binary Search</option>
             <option value="subsets">Array Subsets</option>
@@ -42,13 +42,13 @@
           <div id="sandbox-algo-box">
               <div class="algo-label-div">
                 <div class="sandbox-algo-header-label">Algorithm 1</div>
-                <select id="sandbox-algo-one-color">
+                <select id="sandbox-algo-one-color" class="styled-select blue semi-square">
                   <option value="red" selected>Red</option>
                   <option value="blue">Blue</option>
                 </select>
               </div>
               <div class="sandbox-algo-info">
-                <textarea rows="17" cols="40" id="sandbox-algo-one" placeholder="Please use Javascript's 'function name(){...}'
+                <textarea rows="17" cols="40" id="sandbox-algo-one" class="text-box" placeholder="Please use Javascript's 'function name(){...}'
 notation for your algorithm, and place any
 helper functions inside the body of the
 main algorithm-function being tested.">
@@ -57,13 +57,13 @@ main algorithm-function being tested.">
               </div>
               <div class="algo-label-div">
                 <div class="sandbox-algo-header-label">Algorithm 2</div>
-                <select id="sandbox-algo-two-color">
+                <select id="sandbox-algo-two-color" class="styled-select blue semi-square">
                   <option value="red">Red</option>
                   <option value="blue" selected>Blue</option>
                 </select>
               </div>
               <div class="sandbox-algo-info">
-                <textarea rows="17" cols="40" id="sandbox-algo-two" placeholder="Please use Javascript's 'function name(){...}'
+                <textarea rows="17" cols="40" id="sandbox-algo-two" class="text-box" placeholder="Please use Javascript's 'function name(){...}'
 notation for your algorithm, and place any
 helper functions inside the body of the
 main algorithm-function being tested.">
@@ -79,7 +79,7 @@ main algorithm-function being tested.">
                 <label id="arg-type-master-label"> Argument Types </label>
                 <div class="arg-type">
                   <label class="arg-type-label"> Arg 1: </label>
-                  <select id="sandbox-arg-type-one" class="sandbox-arg-type" onchange={setArgType(1)}>
+                  <select id="sandbox-arg-type-one" onchange={setArgType(1)} class="styled-select blue semi-square sandbox-arg-type">
                     <option value="none">None</option>
                     <option value="random" selected>Randomized Array</option>
                     <option value="sorted">Sorted Array</option>
@@ -89,7 +89,7 @@ main algorithm-function being tested.">
                 </div>
                 <div class="arg-type">
                   <label class="arg-type-label"> Arg 2: </label>
-                  <select id="sandbox-arg-type-two" class="sandbox-arg-type"  onchange={setArgType(2)}>
+                  <select id="sandbox-arg-type-two" onchange={setArgType(2)} class="styled-select blue semi-square sandbox-arg-type">
                     <option value="none" selected>None</option>
                     <option value="random">Randomized Array</option>
                     <option value="sorted">Sorted Array</option>
@@ -99,7 +99,7 @@ main algorithm-function being tested.">
                 </div>
                 <div class="arg-type">
                   <label class="arg-type-label"> Arg 3: </label>
-                  <select id="sandbox-arg-type-three" class="sandbox-arg-type" onchange={setArgType(3)}>
+                  <select id="sandbox-arg-type-three" onchange={setArgType(3)} class="styled-select blue semi-square sandbox-arg-type">
                     <option value="none" selected>None</option>
                     <option value="random">Randomized Array</option>
                     <option value="sorted">Sorted Array</option>
@@ -116,15 +116,15 @@ main algorithm-function being tested.">
                   <label class="sandbox-input-label">Input 1:</label>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-1-1">Argument 1:</label>
-                      <input type="text" value="1000" class="input-textbox" id="sandbox-input-arg-1-1"> </input>
+                      <input type="text" value="1000" class="input-textbox text-box" id="sandbox-input-arg-1-1"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-1-2">Argument 2:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-1-2"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-1-2"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-1-3">Argument 3:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-1-3"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-1-3"> </input>
                   </div>
                 </div>
 
@@ -132,15 +132,15 @@ main algorithm-function being tested.">
                   <label class="sandbox-input-label">Input 2:</label>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-2-1">Argument 1:</label>
-                      <input type="text" value="10000" class="input-textbox" id="sandbox-input-arg-2-1"> </input>
+                      <input type="text" value="10000" class="input-textbox text-box" id="sandbox-input-arg-2-1"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-2-2">Argument 2:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-2-2"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-2-2"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-2-3">Argument 3:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-2-3"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-2-3"> </input>
                   </div>
                 </div>
 
@@ -148,15 +148,15 @@ main algorithm-function being tested.">
                   <label class="sandbox-input-label">Input 3:</label>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-3-1">Argument 1:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-1"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-3-1"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-3-2">Argument 2:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-2"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-3-2"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-3-3">Argument 3:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-3-3"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-3-3"> </input>
                   </div>
                 </div>
 
@@ -164,15 +164,15 @@ main algorithm-function being tested.">
                   <label class="sandbox-input-label">Input 4:</label>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-4-1">Argument 1:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-1"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-4-1"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-4-2">Argument 2:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-2"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-4-2"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-4-3">Argument 3:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-4-3"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-4-3"> </input>
                   </div>
                 </div>
 
@@ -180,15 +180,15 @@ main algorithm-function being tested.">
                   <label class="sandbox-input-label">Input 5:</label>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-5-1">Argument 1:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-1"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-5-1"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-5-2">Argument 2:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-2"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-5-2"> </input>
                   </div>
                   <div class="sandbox-input-box">
                       <label id="sandbox-input-arg-label-5-3">Argument 3:</label>
-                      <input type="text" value="" class="input-textbox" id="sandbox-input-arg-5-3"> </input>
+                      <input type="text" value="" class="input-textbox text-box" id="sandbox-input-arg-5-3"> </input>
                   </div>
                 </div>
 
@@ -207,7 +207,7 @@ main algorithm-function being tested.">
                 <div id="below-graph-box">
                 <div id="sandbox-argument-scale-label">X-Axis Input:</div>
                 <div id="run-axis-box">
-                  <select id="sandbox-argument-axis-scale" onchange={runSandbox()}>
+                  <select id="sandbox-argument-axis-scale" onchange={runSandbox()} class="styled-select blue semi-square">
                     <option value="arg1" selected>Argument 1</option>
                     <option value="arg2">Argument 2</option>
                     <option value="arg3">Argument 3</option>
@@ -221,7 +221,7 @@ main algorithm-function being tested.">
                 <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
                 <div id="sandbox-example-clear-button" onclick={clearButton()}> CUSTOM </div>
                 <div id="sandbox-axis-scale-label">Graph Axes Scale:</div>
-                <select id="sandbox-axis-scale" onchange={runSandbox()}>
+                <select id="sandbox-axis-scale" onchange={runSandbox()} class="styled-select blue semi-square">
                   <option value="linear">Linear</option>
                   <option value="sqrt" selected>Square Root</option>
                 </select>
@@ -233,7 +233,7 @@ main algorithm-function being tested.">
 
             <div id="run-log-container">
               <div id="run-log-label"> Result Log </div>
-              <textarea rows="20" cols="40" id="run-log"></textarea>
+              <textarea rows="20" cols="40" class="text-box" id="run-log"></textarea>
             </div>
 
           </div>

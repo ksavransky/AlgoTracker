@@ -15,6 +15,7 @@ select, option, input{
 body{
   flex-direction: column;
   width: 1200px;
+  background: #afeeee;
 }
 
 /*#load{
@@ -250,7 +251,7 @@ body{
   width: 100px;
   height: 20px;
   text-align: center;
-  background: #6cff72;
+  background: rgb(0, 255, 13);
   cursor: pointer;
 }
 
@@ -287,6 +288,7 @@ body{
   padding: 5px;
   font-size: 12px;
   height: 150px;
+      background: aliceblue;
 }
 
 #inputs-right{
@@ -347,4 +349,50 @@ body{
   margin-top: 300px;
   position: absolute;
   top: 0;
+}
+
+
+
+
+
+.styled-select {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   overflow: hidden;
+   height: 20px;
+   /*width: 110px;*/
+   color: black;
+}
+
+.styled-select-short {
+   /*background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;*/
+   overflow: hidden;
+   /*height: 20px;*/
+   /*width: 70px;*/
+   color: black;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 168px;
+}
+
+
+.semi-square {
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+   border-radius: 5px;
+   border-color: grey;
+}
+
+.blue { background-color: #e0ffff; }
+
+.text-box{
+  border-radius: 5px;
+  text-indent: 2px;
+  border: 1px grey solid;
+  background: white;
 }
