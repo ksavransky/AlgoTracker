@@ -25,7 +25,7 @@
 
 
       <div id="sort-container">
-        <div id="sort-label">Sorting Algorithm Performance Grapher</div>
+        <!-- <div id="sort-label">Sorting Algorithm Performance Grapher</div> -->
 
         <div id="sort-box">
           <div id="sort-algo-box">
@@ -155,16 +155,16 @@
 
 
             <div id="sort-graph-box">
-              <div id="axis-main-label"> Graphing Options </div>
+              <!-- <div id="axis-main-label"> Graphing Options </div> -->
               <div id="axis-scale-box">
+                <div class="button" id="sort-button" onclick={runSort()}> RUN TEST </div>
                 <div id="axis-scale-label">Graph Axes Scale:</div>
                 <select id="axis-scale">
                   <option value="linear">Linear</option>
                   <option value="sqrt" selected>Square Root</option>
                 </select>
               </div>
-              <div class="button" id="sort-button" onclick={runSort()}> RUN TEST </div>
-              <div id="time-perf-label"> Time Performance Graph </div>
+              <div id="time-perf-label"> Sorting Algorithm Time Performance Graph </div>
               <div id="sort-graph-inner">
                 <div id="milliseconds-label"> Time in Milliseconds </div>
                 <div class="sort-graph"></div>

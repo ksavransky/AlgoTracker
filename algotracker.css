@@ -40,13 +40,14 @@ body{
 
 #navbar{
   display: flex;
-  flex-direction: row;
-  margin-left: 15px;
-  margin-bottom: 15px;
-  background: #e8e8e8;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  border-right: 1px solid black;
+    flex-direction: row;
+    margin-left: 15px;
+    margin-bottom: 15px;
+    background: #e8e8e8;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    /* border-right: 1px solid black; */
+    width: 257px;
 }
 
 .nav-button{
@@ -129,7 +130,8 @@ body{
   margin-top: 5px;
   margin-left: 21px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: absolute;
 }
 
 #axis-main-label{
