@@ -127,7 +127,7 @@ body{
 }
 
 #axis-scale-box{
-  margin-top: 36px;
+  margin-top: 59px;
   margin-left: 107px;
   display: flex;
   flex-direction: column;
@@ -157,8 +157,9 @@ body{
 }
 
 #time-perf-label{
-  margin-top: 20px;
-  margin-left: 275px;
+  margin-top: 40px;
+  margin-left: 226px;
+  margin-bottom: -15px;
   font-weight: bold;
 }
 
@@ -195,14 +196,14 @@ body{
   display: flex;
   transform: rotate(270deg);
   transform-origin: left top 0;
-  margin-top: 400px;
+  margin-top: 330px;
   margin-left: 20px;
   width: 190px;
   color: black;
 }
 
 #length-of-array-label{
-  margin-left: 335px;
+  margin-left: 310px;
   margin-top: -20px;
   color: black;
 }
