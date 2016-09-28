@@ -159,7 +159,7 @@
               <div id="axis-scale-box">
                 <div class="button" id="sort-button" onclick={runSort()}> RUN TEST </div>
                 <div id="axis-scale-label">Graph Axes Scale:</div>
-                <select id="axis-scale">
+                <select id="axis-scale" onchange={runSort()}>
                   <option value="linear">Linear</option>
                   <option value="sqrt" selected>Square Root</option>
                 </select>

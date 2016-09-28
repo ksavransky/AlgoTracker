@@ -127,8 +127,8 @@ body{
 }
 
 #axis-scale-box{
-  margin-top: 5px;
-  margin-left: 21px;
+  margin-top: 36px;
+  margin-left: 107px;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -140,12 +140,13 @@ body{
 }
 
 #axis-scale-label{
-  margin-right: 3px;
+  margin-bottom: 5px;
+  margin-top: 10px;
 }
 
 #sort-button{
   margin-top: 11px;
-  margin-left: 20px;
+  margin-left: 13px;
   border: solid 2px black;
   border-radius: 5px;
   width: 100px;
@@ -157,7 +158,7 @@ body{
 
 #time-perf-label{
   margin-top: 20px;
-  margin-left: 308px;
+  margin-left: 275px;
   font-weight: bold;
 }
 
@@ -182,6 +183,8 @@ body{
 #sort-graph-box{
   display: flex;
   flex-direction: column;
+  margin-top: -102px;
+  margin-left: -10px;
 }
 
 .sort-graph{
