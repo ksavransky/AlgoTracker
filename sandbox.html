@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>AlgoTracker</title>
-        <link rel="stylesheet" type="text/css" href="sandbox.css">
+        <link rel="stylesheet" type="text/css" href="./css/sandbox.css">
 
     </head>
     <body>
@@ -24,7 +24,7 @@
       <div id="load"></div>
 
       <div id="sandbox-container">
-        
+
         <div id="sandbox-example-box">
           <label id="sandbox-example-label"> Examples: </label>
           <select id="sandbox-example" onchange={setExampleInput()} class="styled-select blue semi-square">
@@ -238,12 +238,9 @@ main algorithm-function being tested.">
           </div>
         </div>
 
-
-      <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
-
       <script src="./d3/d3.min.js"></script>
-      <script src="algorithms.js" type="text/javascript"></script>
-      <script src="sandbox.js" type="text/javascript"></script>
-      <!-- <script src="draw.js"></script> -->
+      <script src="./lib/algorithms.js" type="text/javascript"></script>
+      <script src="./lib/sandbox.js" type="text/javascript"></script>
+
     </body>
 </html>
