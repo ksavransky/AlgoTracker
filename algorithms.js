@@ -182,7 +182,7 @@ function fibonacciRecursive(n) {
   } else if (n === 2) {
     return [0, 1];
   } else {
-    let fibs = fibonacciRecursive(n - 1);
+    var fibs = fibonacciRecursive(n - 1);
     fibs.push(fibs[fibs.length - 1] + fibs[fibs.length - 2]);
 
     return fibs;
@@ -198,7 +198,7 @@ function fibonacciIterative(n) {
     return [0, 1];
   }
 
-  let fibs = [0, 1];
+  var fibs = [0, 1];
   while (fibs.length < n) {
     fibs.push(fibs[fibs.length - 2] + fibs[fibs.length - 1]);
   }
@@ -213,22 +213,25 @@ function subsets(array) {
 
   const lastElement = array.slice(-1)[0];
   const subs = subsets(array.slice(0, array.length - 1));
-  return subs.concat(subs.map(sb => sb.concat([lastElement])));
+  return subs.concat(subs.map(function(sb) {
+    sb.concat([lastElement]);
+  }
+));
 }
 
 function heapSort(arr){
-        let last = arr.length - 1;
+        var last = arr.length - 1;
         function parent(idx){
           if(idx > 0 && idx <= last){return ~~((idx -1) / 2);}
         }
         function children(idx){
-          let children = {l: undefined, r: undefined}
+          var children = {l: undefined, r: undefined}
           if(2 * idx + 1 <= last){children.l = 2 * idx + 1;}
           if(2 * idx + 2 <= last){children.r = 2 * idx + 2;}
           return children
         }
         function swap(idx1, idx2){
-          let temp = arr[idx1];
+          var temp = arr[idx1];
           arr[idx1] = arr[idx2];
           arr[idx2] = temp;
         }
@@ -238,11 +241,11 @@ function heapSort(arr){
         }
 
         function heapStep(idx){
-          let l = pair(idx).l;
-          let r = pair(idx).r;
-          let par = parent(idx);
-          let max = arr[l];
-          let maxi = l;
+          var l = pair(idx).l;
+          var r = pair(idx).r;
+          var par = parent(idx);
+          var max = arr[l];
+          var maxi = l;
           if(r && l && arr[r] > arr[l]){
             max = arr[r];
             maxi = r;
@@ -252,7 +255,7 @@ function heapSort(arr){
         }
 
         function makeHeap(n){
-          for (let i = n; i > 0; i-=2) {
+          for (var i = n; i > 0; i-=2) {
             last = n;
             heapStep(i);
           }
@@ -260,7 +263,7 @@ function heapSort(arr){
 
         makeHeap(last)
 
-        for (let i = last; i > 0; i--) {
+        for (var i = last; i > 0; i--) {
           swap(0, i);
           last--;
           heapStep(1);

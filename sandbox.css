@@ -232,6 +232,7 @@ body{
   margin-top: 30px;
   position: absolute;
   z-index: 10;
+  transform: translate(0%, -600%);
 }
 
 #below-graph-box{
