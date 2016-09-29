@@ -103,6 +103,7 @@ body{
 }
 
 
+
 #sandbox-container{
   display: flex;
   flex-direction: column;
@@ -124,6 +125,10 @@ body{
   font-size: 12px;
 }
 
+#sandbox-example{
+  font-weight: bold;
+}
+
 #sandbox-input-container{
   display: flex;
   flex-direction: column;
@@ -132,10 +137,14 @@ body{
 
 #sandbox-algo-one-color{
   background: red;
-
+  text-indent: 100%;
+  width: 75px;
 }
+
 #sandbox-algo-two-color{
   background: blue;
+  text-indent: 100%;
+  width: 75px;
 }
 
 #arg-type-master-label{
