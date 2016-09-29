@@ -232,7 +232,30 @@ body{
   margin-top: 30px;
   position: absolute;
   z-index: 10;
-  transform: translate(0%, -600%);
+
+}
+
+@media screen and (min-color-index:0) and(-webkit-min-device-pixel-ratio:0)
+{ @media {
+  #above-graph-box{
+    margin-left: 103px;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 10;
+    transform: translate(0%, -600%);
+  }
+}}
+
+_::-webkit-:host:not(:root:root), .safari_only {
+
+  #above-graph-box{
+    margin-left: 103px;
+    margin-top: 30px;
+    position: absolute;
+    z-index: 10;
+    transform: translate(0%, -600%);
+  }
+
 }
 
 #below-graph-box{
@@ -262,6 +285,7 @@ body{
   margin-top: 0px;
   margin-bottom: 5px;
   width: 90px;
+  z-index: 20;
 }
 
 #sandbox-axis-scale{
