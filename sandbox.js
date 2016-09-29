@@ -257,7 +257,7 @@ function draw(){
     axisScale = "sqrt";
   } else if(document.getElementById("sandbox-axis-scale").value === "linear"){
     axisScale = "linear";
-  } 
+  }
 
   var w = 600;
   var h = 600;
@@ -377,6 +377,11 @@ function clearInputs(){
 
 function setNoneInput(idx, bool){
   noneInputs[idx] = bool;
+}
+
+function setLabelColor(){
+  var colorLabel = event.currentTarget;
+  colorLabel.style.background = colorLabel.value;
 }
 
 function setArgType(argNum){
@@ -682,17 +687,18 @@ function addToLog(str){
   document.getElementById(`run-log`).value = txt + str + "\n";
 }
 
-setExampleInput();
 
-// document.onreadystatechange = function () {
-//   var state = document.readyState;
-//   if (state == 'interactive') {
-//        document.getElementById('contents').style.visibility="hidden";
-//   } else if (state == 'complete') {
-//       setTimeout(function(){
-//          document.getElementById('interactive');
-//          document.getElementById('load').style.visibility="hidden";
-//          document.getElementById('contents').style.visibility="visible";
-//       },1000);
-//   }
-// };
+
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'interactive') {
+       document.getElementById('sandbox-container').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('sandbox-container').style.visibility="visible";
+         setExampleInput();
+      },1000);
+  }
+};

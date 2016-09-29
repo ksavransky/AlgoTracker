@@ -76,6 +76,11 @@ function createRandArray(n){
   return array;
 }
 
+function setLabelColor(){
+  var colorLabel = event.currentTarget;
+  colorLabel.style.background = colorLabel.value;
+}
+
 
 function timeTracker(algo, arg, color){
   if(algo.name !== "none"){
@@ -208,6 +213,19 @@ runSort();
 function changeToSandbox(){
   window.location.href = "sandbox.html";
 }
+
+document.onreadystatechange = function () {
+  var state = document.readyState;
+  if (state == 'interactive') {
+       document.getElementById('sort-container').style.visibility="hidden";
+  } else if (state == 'complete') {
+      setTimeout(function(){
+         document.getElementById('interactive');
+         document.getElementById('load').style.visibility="hidden";
+         document.getElementById('sort-container').style.visibility="visible";
+      },1000);
+  }
+};
 
 // document.onreadystatechange = function () {
 //   var state = document.readyState;

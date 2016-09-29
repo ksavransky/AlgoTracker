@@ -73,6 +73,7 @@ body{
   flex-direction: column;
   margin-left: 15px;
   margin-bottom: 5px;
+  visibility: hidden;
 }
 
 #sort-label{
@@ -87,6 +88,22 @@ body{
   flex-direction: row;
   justify-content: space-around;
   /*width: 750px;*/
+}
+
+#sort-algo-one-color{
+  background: red;
+}
+#sort-algo-two-color{
+  background: blue;
+}
+#sort-algo-three-color{
+  background: yellow;
+}
+#sort-algo-four-color{
+  background: green;
+}
+#sort-algo-five-color{
+  background: purple;
 }
 
 #sort-algo-box{
@@ -259,15 +276,10 @@ body{
   background: white;
 }
 
-/*
-.text4{
-  box-shadow:1px 1px 45px #333;
-  transition: 200ms all ease;
-  border:none;
-  padding: 5px 5px;
+#load{
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:9999;
+    background:url("./assets/loading.gif") no-repeat center center rgba(0,0,0,0.25)
 }
-.text4:hover {
-  margin:-5px 0 0 -5px;
-  height:29px;
-  width:250px;
-}*/

@@ -21,11 +21,10 @@
            </div>
        </div>
 
-      <!-- <div id="load"></div> -->
-      <div id="contents">
-      <div id="sandbox-container">
-        <!-- <div id="sandbox-label">Custom Algorithm Performance Grapher</div> -->
+      <div id="load"></div>
 
+      <div id="sandbox-container">
+        
         <div id="sandbox-example-box">
           <label id="sandbox-example-label"> Examples: </label>
           <select id="sandbox-example" onchange={setExampleInput()} class="styled-select blue semi-square">
@@ -42,7 +41,7 @@
           <div id="sandbox-algo-box">
               <div class="algo-label-div">
                 <div class="sandbox-algo-header-label">Algorithm 1</div>
-                <select id="sandbox-algo-one-color" class="styled-select blue semi-square">
+                <select id="sandbox-algo-one-color" class="styled-select semi-square" onchange={setLabelColor()}>
                   <option value="red" selected>Red</option>
                   <option value="blue">Blue</option>
                 </select>
@@ -57,7 +56,7 @@ main algorithm-function being tested.">
               </div>
               <div class="algo-label-div">
                 <div class="sandbox-algo-header-label">Algorithm 2</div>
-                <select id="sandbox-algo-two-color" class="styled-select blue semi-square">
+                <select id="sandbox-algo-two-color" class="styled-select semi-square" onchange={setLabelColor()}>
                   <option value="red">Red</option>
                   <option value="blue" selected>Blue</option>
                 </select>
@@ -239,9 +238,6 @@ main algorithm-function being tested.">
           </div>
         </div>
 
-
-
-    </div>
 
       <!-- <script src="https://d3js.org/d3.v3.min.js"></script> -->
 

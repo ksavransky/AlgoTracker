@@ -23,6 +23,8 @@
           </div>
       </div>
 
+      <div id="load"></div>
+
 
       <div id="sort-container">
         <!-- <div id="sort-label">Sorting Algorithm Performance Grapher</div> -->
@@ -40,7 +42,7 @@
                   <option value="insertionSort">Insertion Sort</option>
                   <option value="heapSort">Heap Sort</option>
                 </select>
-                <select id="sort-algo-one-color" class="styled-select-short blue semi-square">
+                <select id="sort-algo-one-color" class="styled-select-short semi-square" onchange={setLabelColor()}>
                   <option value="red" selected>Red</option>
                   <option value="blue">Blue</option>
                   <option value="yellow">Yellow</option>
@@ -59,7 +61,7 @@
                   <option value="heapSort">Heap Sort</option>
                   <option value="none">None</option>
                 </select>
-                <select id="sort-algo-two-color" class="styled-select-short blue semi-square">
+                <select id="sort-algo-two-color" class="styled-select-short semi-square" onchange={setLabelColor()}>
                   <option value="red">Red</option>
                   <option value="blue" selected>Blue</option>
                   <option value="yellow">Yellow</option>
@@ -78,7 +80,7 @@
                   <option value="heapSort">Heap Sort</option>
                   <option value="none">None</option>
                 </select>
-                <select id="sort-algo-three-color" class="styled-select-short blue semi-square">
+                <select id="sort-algo-three-color" class="styled-select-short semi-square" onchange={setLabelColor()}>
                   <option value="red">Red</option>
                   <option value="blue">Blue</option>
                   <option value="yellow" selected>Yellow</option>
@@ -97,7 +99,7 @@
                   <option value="heapSort">Heap Sort</option>
                   <option value="none">None</option>
                 </select>
-                <select id="sort-algo-four-color" class="styled-select-short blue semi-square">
+                <select id="sort-algo-four-color" class="styled-select-short semi-square" onchange={setLabelColor()}>
                   <option value="red">Red</option>
                   <option value="blue">Blue</option>
                   <option value="yellow">Yellow</option>
@@ -116,7 +118,7 @@
                   <option value="heapSort" selected>Heap Sort</option>
                   <option value="none">None</option>
                 </select>
-                <select id="sort-algo-five-color" class="styled-select-short blue semi-square">
+                <select id="sort-algo-five-color" class="styled-select-short semi-square" onchange={setLabelColor()}>
                   <option value="red">Red</option>
                   <option value="blue">Blue</option>
                   <option value="yellow">Yellow</option>
