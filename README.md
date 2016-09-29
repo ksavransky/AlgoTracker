@@ -41,16 +41,6 @@ function parseAlgo(algo){
   var args = algo.substring(algo.indexOf("(") + 1, algo.indexOf(")"));
   var argsArray = args.split(", ");
   functionName = algo.substring(algo.indexOf("n ") + 2, algo.indexOf("("));
-  functionArgCount = argsArray.length;
-  if (argsArray[0] == ""){
-    functionArgCount = 0;
-  }
-
-  if(functionArgCount !== inputArgCount){
-    window.alert(
-`Error: your algorithm(s) takes ${functionArgCount} argument(s) but your input has ${inputArgCount} argument(s).
-Please make sure the number of arguments your algorithm(s) accept are the same as the number of argument inputs.`);
-  }
 
   var cnt = 0;
   var lastBracket;
