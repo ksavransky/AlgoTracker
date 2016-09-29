@@ -8,7 +8,7 @@ var functionName;
 var noneInputs = [false, false, false];
 
 function runSandbox(){
-
+  sizeAlert();
   document.getElementById(`run-log`).value = "";
   dataset = [];
   algos = [];
@@ -61,7 +61,15 @@ function runSandbox(){
       `Error: you are missing inputs. You have selected an argument type but not provided a single input for it. Please either provide at least one input for the argument or change the argument type to "None."`);
     }
   draw();
-  // window.location.hash = '#run-log-label';
+}
+
+function sizeAlert(){
+  if(document.getElementById("sandbox-example").value === "bubblequick")
+  for(var i = 1; i < 6; i++){
+    if (document.getElementById(`sandbox-input-arg-${i}-1`).value > 30000){
+      window.alert("You have at least one input array that has a length over 30,000, which may cause substantial wait times for the algorithms to finish running and the new graph to appear.")
+    }
+  }
 }
 
 function setAlgos(){

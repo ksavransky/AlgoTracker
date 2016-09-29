@@ -6,6 +6,7 @@ var algoColors = [];
 var coords = [];
 
 function runSort(){
+  sizeAlert();
   dataset = [];
   algos = [];
   algoColors = [];
@@ -29,6 +30,14 @@ function runSort(){
   });
 
   draw();
+}
+
+function sizeAlert(){
+  for(var i = 1; i < 6; i++){
+    if (document.getElementById(`sort-input-${i}`).value > 30000){
+      window.alert("You have at least one input array that has a length over 30,000, which may cause substantial wait times for the algorithms to finish running and the new graph to appear.")
+    }
+  }
 }
 
 function setAlgos(){
