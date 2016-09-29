@@ -2,7 +2,7 @@
 
 ###[Link to AlgoTracker](http://jockey-enlistment-68560.bitballoon.com/)
 
-This project is a developer and computer science educational application that graphs the run time for various algorithms given numerous inputs. The application consists of two parts. First, the application has a sorting algorithm performance grapher that compares the run time of six popular sorting algorithms based on five randomized unsorted arrays of different lengths (entered by the user). Second, the application allows the user to write two custom Javascript functions and compare their run times against each other across five inputs. The run times are graphed across the inputs and the results are logged in a simulated console.     
+This application graphs the run time of various algorithms across numerous inputs. The application consists of two parts. The first part of the application is a sorting algorithm performance grapher that compares the run time of six popular sorting algorithms based on five randomized unsorted arrays of different lengths (chosen by the user). This part of the app is intended to be used for CS education purposes. The second part of the application allows a user to write up to two custom Javascript functions and compare their run times against each other across five inputs via a graph and a simulated console's result log. This part of the app can be used by developers to test the speed of their algorithms.
 
 AlgoTracker was developed using Javascript, D3, and HTML/CSS.
 
@@ -16,13 +16,13 @@ AlgoTracker was developed using Javascript, D3, and HTML/CSS.
 
 ## Custom Algorithm Performance Grapher Features
 
-- [ ] Graphs up to two custom Javascript algorithm run times entered by user in custom console for up to five inputs.
-- [ ] Each algorithm accepts up to three arguments, including sorted and unsorted arrays of any lengths, which the application helps to generate for the user based on specified length and array type.
-- [ ] User may select axes scale for graph (linear or square root).
+- [ ] Graphs up to two custom Javascript algorithm run times entered by user in custom console across five inputs.
+- [ ] Each algorithm accepts up to three arguments, including, if chosen, sorted and unsorted arrays of any lengths, which the application helps to generate for the user based on specified length and array type.
 - [ ] User may select x-axis argument (assuming algorithm has multiple arguments that may be graphed as x-axis inputs).
-- [ ] Graph axes automatically adjust to accommodate the largest array input size.
 - [ ] Includes examples of popular algorithms for demonstration purposes (e.g. Binary Search).
 - [ ] Algorithm run results are displayed in custom output console to the right of the graph.
+- [ ] User may select axes scale for graph (linear or square root).
+- [ ] Graph axes automatically adjust to accommodate the largest array input size.
 
 ## Views
 
@@ -109,6 +109,28 @@ function runSort(){
   draw();
 }
 
+function timeTracker(algo, arg, color){
+  if(algo.name !== "none"){
+    var startTime = new Date();
+    var result = algo(arg);
+    var endTime = new Date();
+    var timeElapsed = endTime - startTime;
+    dataset.push([arg.length, timeElapsed, algo.name, color]);
+  }
+}
+
+
+function setCoords(){
+  coords = [];
+  dataset.forEach(function(circle, idx){
+    if(dataset[idx + algos.length]){
+      if(dataset[idx][2] == dataset[idx + algos.length][2]){
+        coords.push([dataset[idx][0], dataset[idx][1],
+          dataset[idx + algos.length][0], dataset[idx + algos.length][1], circle[3]]);
+      }
+    }
+  });
+}
 
 function draw(){
   setCoords();
@@ -131,26 +153,23 @@ function draw(){
 
 
   var xScale = d3.scale.linear()
+  var yScale = d3.scale.linear()
+  var rScale = d3.scale.linear()
+
   if(axisScale === "sqrt"){
     xScale = d3.scale.sqrt()
+    yScale = d3.scale.sqrt()
+    rScale = d3.scale.sqrt()
   }
+
   xScale.domain([0, d3.max(dataset, function(d) { return d[0]; })])
          .range([padding, w - padding * 2]);
 
-  var yScale = d3.scale.linear()
-  if(axisScale === "sqrt"){
-    yScale = d3.scale.sqrt()
-  }
   yScale.domain([0, d3.max(dataset, function(d) { return d[1]; })])
         .range([h - padding, padding]);
 
-  var rScale = d3.scale.linear()
-  if(axisScale === "sqrt"){
-    rScale = d3.scale.sqrt()
-  }
   rScale.domain([0, d3.max(dataset, function(d) { return d[1]; })])
         .range([2, 5]);
-
 
   svg.selectAll("circle")
      .data(dataset)
@@ -206,5 +225,4 @@ function draw(){
      .attr("class", "axis")
      .attr("transform", "translate(" + padding + ",0)")
      .call(yAxis);
-
 }
