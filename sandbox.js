@@ -255,9 +255,9 @@ function draw(){
 
   if(document.getElementById("sandbox-axis-scale").value === "sqrt"){
     axisScale = "sqrt";
-  } else {
+  } else if(document.getElementById("sandbox-axis-scale").value === "linear"){
     axisScale = "linear";
-  }
+  } 
 
   var w = 600;
   var h = 600;
@@ -273,6 +273,7 @@ function draw(){
   if(axisScale === "sqrt"){
     xScale = d3.scale.sqrt()
   }
+
   xScale.domain([0, d3.max(dataset, function(d) { return d[0]; })])
          .range([padding, w - padding * 2]);
 
@@ -283,10 +284,12 @@ function draw(){
   yScale.domain([0, d3.max(dataset, function(d) { return d[1]; })])
         .range([h - padding, padding]);
 
+
   var rScale = d3.scale.linear()
   if(axisScale === "sqrt"){
     rScale = d3.scale.sqrt()
   }
+
   rScale.domain([0, d3.max(dataset, function(d) { return d[1]; })])
         .range([2, 5]);
 
