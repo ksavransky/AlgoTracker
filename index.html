@@ -15,13 +15,14 @@
        </div>
 
       <div id="navbar">
-          <div id="change-to-sorting" class="nav-button" onclick={location.reload()}>
+          <div id="change-to-sorting" class="nav-button btn-shadow" onclick={location.reload()}>
               Sorting Grapher
           </div>
-          <div id="change-to-sandbox" class="nav-button" onclick={changeToSandbox()}>
+          <div id="change-to-sandbox" class="nav-button btn-shadow" onclick={changeToSandbox()}>
               Custom Grapher
           </div>
       </div>
+
 
       <div id="load"></div>
 
@@ -158,7 +159,7 @@
             <div id="sort-graph-box">
               <!-- <div id="axis-main-label"> Graphing Options </div> -->
               <div id="axis-scale-box">
-                <div class="button" id="sort-button" onclick={runSort()}> RUN TEST </div>
+                <div class="button hvr-grow" id="sort-button" onclick={runSort()}> RUN TEST </div>
                 <div id="axis-scale-label">Graph Axes Scale:</div>
                 <select id="axis-scale" onchange={runSort()} class="styled-select blue semi-square">
                   <option value="linear">Linear</option>

@@ -13,10 +13,10 @@
       <div id="title-description" class="title-label"> Algorithm Performance Grapher </div>
 
        <div id="navbar">
-           <div id="change-to-sorting" class="nav-button" onclick={changeToSorting()}>
+           <div id="change-to-sorting" class="nav-button btn-shadow" onclick={changeToSorting()}>
                Sorting Grapher
            </div>
-           <div id="change-to-sandbox" class="nav-button" onclick={location.reload()}>
+           <div id="change-to-sandbox" class="nav-button btn-shadow" onclick={location.reload()}>
                Custom Grapher
            </div>
        </div>
@@ -217,8 +217,8 @@ main algorithm-function being tested.">
               </div>
 
               <div id="above-graph-box">
-                <div class="button" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
-                <div id="sandbox-example-clear-button" onclick={clearButton()}> CUSTOM </div>
+                <div class="hvr-grow" id="sandbox-run-button" onclick={runSandbox()}> RUN TEST </div>
+                <div class="hvr-grow" id="sandbox-example-clear-button" onclick={clearButton()}> CUSTOM </div>
                 <div id="sandbox-axis-scale-label">Graph Axes Scale:</div>
                 <select id="sandbox-axis-scale" onchange={runSandbox()} class="styled-select blue semi-square">
                   <option value="linear">Linear</option>
