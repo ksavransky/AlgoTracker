@@ -1,6 +1,6 @@
 # AlgoTracker
 
-###[Link to AlgoTracker](http://jockey-enlistment-68560.bitballoon.com/)
+### [Link to AlgoTracker](http://jockey-enlistment-68560.bitballoon.com/)
 
 This application graphs the run time of various algorithms across numerous inputs. The application consists of two parts. The first part of the application is a sorting algorithm performance grapher that compares the run time of six popular sorting algorithms based on five randomized unsorted arrays of different lengths (chosen by the user). This part of the app is intended to be used for CS education purposes. The second part of the application allows a user to write up to two custom Javascript functions and compare their run times against each other across five inputs via a graph and a simulated console's result log. This part of the app can be used by developers to test the speed of their algorithms.
 
@@ -30,9 +30,9 @@ AlgoTracker was developed using Javascript, D3, and HTML/CSS.
 
 ![AlgoTracker Custom Algorithm Performance Grapher](assets/algotracker2.png)
 
-####Sample Code Snippet:
+#### Sample Code Snippet:
 
-######Custom Console (Parser and New Function Creation)
+###### Custom Console (Parser and New Function Creation)
 
 ```javascript
 
@@ -68,7 +68,7 @@ function parseAlgo(algo){
 
 ```
 
-######Sorting Algorithm Benchmarking and Graph Drawing Functions
+###### Sorting Algorithm Benchmarking and Graph Drawing Functions
 
 ```javascript
 
